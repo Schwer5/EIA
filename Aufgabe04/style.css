@@ -5,6 +5,16 @@ a {
   padding: 10px;
   text-decoration: linen;
 }
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+}
+h2{ 
+  font-family: Arial, Helvetica, sans-serif;
+}
+div {
+  text-align: center;
+}
+
 
 /* Container holding the image and the text */
 .Moos {
@@ -52,11 +62,12 @@ a {
 footer {
   background: #eaeaea;
   width: 100%;
-  position: absolute;
+  position: bottom;
   bottom: 0;
   padding: 100px 0 30px;
   font-size: 13px;
   line-height: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .Footer_Content {
@@ -71,5 +82,12 @@ footer {
 .col {
   flex-basis: 25%;
   padding: 10px;
-
 }
+
+.col h3 {
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+
