@@ -5,17 +5,8 @@ a {
   padding: 10px;
   text-decoration: linen;
 }
-h1{
-  font-family: Arial, Helvetica, sans-serif;
-}
-h2{ 
-  font-family: Arial, Helvetica, sans-serif;
-}
-div {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  
-}
+
+
 
 
 /* Container holding the image and the text */
@@ -44,7 +35,9 @@ div {
   position: absolute;
   top: 8px;
   right: 16px;
+
 }
+
 
 /* Bottom right text */
 .bottom-right {
@@ -62,14 +55,15 @@ div {
 }
 
 footer {
+
   background: #eaeaea;
   width: 100%;
-  position: bottom;
-  bottom: 0;
   padding: 100px 0 30px;
   font-size: 13px;
   line-height: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  top: 200px;
 }
 
 .Footer_Content {
@@ -80,6 +74,7 @@ footer {
   align-items: flex-start;
   justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .col {
@@ -95,10 +90,34 @@ footer {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-input[type=text] {
-  width: 700px;
+.container {
+  width: 800px;
   height: 100px;
+  margin: auto;
+  position: relative;
+  top: 0px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+.inputBox [type=text] {
+  width: 800px;
+  height: 50px;
   background-color: gray;
   color: white;
 
+}
+
+.Eingabe {
+  width: 800px;
+  height: 200px;
+  position: relative;
+  top: 150px;
+  margin: auto;
+}
+
+.Portfolio {
+  width: 800px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
