@@ -126,3 +126,14 @@ a:hover {
   color: white;
   text-decoration: underline;
 }
+
+
+.image:hover {
+transform: scale(1.03);
+transition-duration: 800ms;
+opacity: 0.5;
+}
+.image {
+ transition-duration: 800ms;
+}
+  
