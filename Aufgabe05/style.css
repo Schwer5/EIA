@@ -64,6 +64,7 @@ footer {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   top: 200px;
+
 }
 
 .Footer_Content {
@@ -80,15 +81,9 @@ footer {
 .col {
   flex-basis: 25%;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;  
 }
 
-.col h3 {
-  width: fit-content;
-  margin-bottom: 40px;
-  position: relative;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .container {
   width: 800px;
@@ -136,4 +131,19 @@ opacity: 0.5;
 .image {
  transition-duration: 800ms;
 }
-  
+
+.video:hover{
+  transform: scale(1.03);
+  transition-duration: 800ms;
+}
+
+.video {
+  transition-duration: 800ms;
+}
+
+.icon {
+  opacity: 0.4;
+}
+.icon:hover{
+  opacity: 1;
+}
