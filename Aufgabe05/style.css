@@ -6,8 +6,18 @@ a {
   text-decoration: none;
 }
 
+h3 {
+  font-size: 30px;
+}
 
+h2 {
+  font-family: "Oswald";
+  font-size: 40px;
+}
 
+h1 {
+  font-size: 20px;
+}
 
 /* Container holding the image and the text */
 .Moos {
@@ -128,7 +138,6 @@ a:hover {
 .image:hover {
   transform: scale(1.03);
   transition-duration: 800ms;
-  opacity: 0.5;
 }
 
 .image {
@@ -152,21 +161,18 @@ a:hover {
   opacity: 1;
 }
 
-.img-container {
-  width: 100%;
-}
-
 .img1,
 .img2,
 .img3 {
   position: absolute;
   width: 100%;
   height: 100%;
+
 }
 
 .img1 {
   animation-name: Moos1;
-  animation-duration: 8s;
+  animation-duration: 9s;
   animation-iteration-count: infinite;
   background-size: cover;
   background-image: url(./Moos.jpg);
@@ -177,11 +183,15 @@ a:hover {
     opacity: 1;
   }
 
-  25% {
+  30% {
+    opacity: 1;
+  }
+
+  40% {
     opacity: 0;
   }
 
-  75% {
+  90% {
     opacity: 0;
   }
 
@@ -192,7 +202,7 @@ a:hover {
 
 .img2 {
   animation-name: Moos2;
-  animation-duration: 8s;
+  animation-duration: 9s;
   animation-iteration-count: infinite;
   background-size: cover;
   background-image: url(./Moos2.jpg);
@@ -203,7 +213,15 @@ a:hover {
     opacity: 0;
   }
 
-  25% {
+  30% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  65% {
     opacity: 1;
   }
 
@@ -218,7 +236,7 @@ a:hover {
 
 .img3 {
   animation-name: Pilz;
-  animation-duration: 8s;
+  animation-duration: 9s;
   animation-iteration-count: infinite;
   background-size: cover;
   background-image: url(./Pilz.jpg);
@@ -229,7 +247,7 @@ a:hover {
     opacity: 0;
   }
 
-  25% {
+  65% {
     opacity: 0;
   }
 
@@ -237,7 +255,35 @@ a:hover {
     opacity: 1;
   }
 
-  100% {
+  90% {
     opacity: 1;
   }
+
+  100% {
+    opacity: 0;
+  }
 }
+
+.Marker {
+  width: 1000px;
+  height: 110px;
+  background-color: rgb(31, 30, 30);
+  opacity: 0.9;
+  color: white;
+  position: fixed;
+  right: -200px;
+  top: 80px;
+  text-align: center;
+  rotate: 33deg;
+  z-index: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url(./Fonts/Oswald/Oswald-VariableFont_wght.ttf);
+}
+
+/* Schrift wurde Lokal eingebunden wegen aktuellem DSGVO-Urteil vom 20.01.22
+https://www.ra-plutte.de/lg-muenchen-dynamische-einbindung-google-web-fonts-ist-dsgvo/
+*/ 
