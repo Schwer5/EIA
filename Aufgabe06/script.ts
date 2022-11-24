@@ -10,7 +10,18 @@ const belgien2021 = 11.59
 const bulgarien2012 = 7.31
 const bulgarien2021 = 6.9
 
+const EU2012 = 504
+const EU2021 = 447.7
+
 const EU = 447.7
+
+console.log(EU2021 + "Mio")
+let vergleichswertEU = EU2021 * 100 / EU
+console.log(vergleichswertEU + " %")
+let wachstumsraterelativEU = (EU2021 * 100 / EU2012) - 100
+console.log(wachstumsraterelativEU + " %")
+let wachstumsrategesamtEU = EU2021 - EU2012
+console.log(wachstumsrategesamtEU + " Mio")
 
 console.log(deutschland2021 + "Mio")
 let vergleichswertdeutschland = deutschland2021 * 100 / EU
@@ -77,3 +88,5 @@ belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, 
 const bulgarien = document.querySelector('.bulgaria') as HTMLImageElement
 bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien') });
 
+const stern = document.querySelector('.stars') as HTMLImageElement
+stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU') });
