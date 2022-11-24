@@ -35,4 +35,24 @@ let wachstumsraterelativbulgarien = (bulgarien2021 * 100 / bulgarien2012) - 100;
 console.log(wachstumsraterelativbulgarien + " %");
 let wachstumsrategesamtbulgarien = bulgarien2021 - bulgarien2012;
 console.log(wachstumsrategesamtbulgarien + " Mio");
+function Heading(land, Einwohnerzahl, vergleichswert, wachstumsrate, wachstumsrateges) {
+    const ueberschrift = document.querySelector('.ueberschrift');
+    ueberschrift.innerHTML = "Einwohnerzahl " + land;
+    const Einwohner = document.querySelector('.Einwohnerzahl');
+    Einwohner.innerHTML = Einwohnerzahl + ' Mio';
+    const Prozent = document.querySelector('.Prozentrelativ');
+    Prozent.innerHTML = vergleichswert + ' %';
+    const Wachstumsraterel = document.querySelector('.Wachstumsraterelativ');
+    Wachstumsraterel.innerHTML = wachstumsrate + ' %';
+    const Wachstumgsrategesmt = document.querySelector('.Wachstumsrategesamt');
+    Wachstumgsrategesmt.innerHTML = wachstumsrateges + ' Mio';
+}
+const deutschland = document.querySelector('.germany');
+deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland); });
+const oesterreich = document.querySelector('.austria');
+oesterreich.addEventListener('click', function () { Heading('Österreich', oesterreich2021, vergleichswertoesterreich, wachstumsraterelativoesterreich, wachstumsrategesamtoesterreich); });
+const belgien = document.querySelector('.belgium');
+belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien); });
+const bulgarien = document.querySelector('.bulgaria');
+bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien); });
 //# sourceMappingURL=script.js.map
