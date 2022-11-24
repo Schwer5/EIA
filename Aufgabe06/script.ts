@@ -13,20 +13,20 @@ const bulgarien2021 = 6.9
 const EU = 447.7
 
 console.log(deutschland2021 + "Mio")
-let vergleichswertdeutschland = deutschland2021 * 100 / EU 
+let vergleichswertdeutschland = deutschland2021 * 100 / EU
 console.log(vergleichswertdeutschland + " %")
-let wachstumsraterelativdeutschland = (deutschland2021 * 100 / deutschland2012) - 100 
+let wachstumsraterelativdeutschland = (deutschland2021 * 100 / deutschland2012) - 100
 console.log(wachstumsraterelativdeutschland + " %")
-let wachstumsrategesamtdeutschland = deutschland2021 - deutschland2012 
+let wachstumsrategesamtdeutschland = deutschland2021 - deutschland2012
 console.log(wachstumsrategesamtdeutschland + " Mio")
 
 console.log(oesterreich2021 + "Mio")
 let vergleichswertoesterreich = oesterreich2021 * 100 / EU
-console.log(vergleichswertoesterreich + " %") 
+console.log(vergleichswertoesterreich + " %")
 let wachstumsraterelativoesterreich = (oesterreich2021 * 100 / oesterreich2012) - 100
-console.log(wachstumsraterelativoesterreich + " %") 
+console.log(wachstumsraterelativoesterreich + " %")
 let wachstumsrategesamtoesterreich = oesterreich2021 - oesterreich2012
-console.log(wachstumsrategesamtoesterreich + " Mio") 
+console.log(wachstumsrategesamtoesterreich + " Mio")
 
 console.log(belgien2021 + "Mio")
 let vergleichswertbelgien = belgien2021 * 100 / EU
@@ -43,3 +43,34 @@ let wachstumsraterelativbulgarien = (bulgarien2021 * 100 / bulgarien2012) - 100
 console.log(wachstumsraterelativbulgarien + " %")
 let wachstumsrategesamtbulgarien = bulgarien2021 - bulgarien2012
 console.log(wachstumsrategesamtbulgarien + " Mio")
+
+function Heading(land: string, Einwohnerzahl: number, vergleichswert: number, wachstumsrate: number, wachstumsrateges: number) {
+    const ueberschrift = document.querySelector('.ueberschrift') as HTMLHeadingElement
+    ueberschrift.innerHTML = "Einwohnerzahl " + land
+
+    const Einwohner = document.querySelector('.Einwohnerzahl') as HTMLHeadingElement
+    Einwohner.innerHTML = Einwohnerzahl + ' Mio'
+
+    const Prozent = document.querySelector('.Prozentrelativ') as HTMLHeadingElement
+    Prozent.innerHTML = vergleichswert + ' %'
+
+    const Wachstumsraterel = document.querySelector('.Wachstumsraterelativ') as HTMLHeadingElement
+    Wachstumsraterel.innerHTML = wachstumsrate + ' %'
+
+    const Wachstumgsrategesmt = document.querySelector ('.Wachstumsrategesamt') as HTMLHeadingElement
+    Wachstumgsrategesmt.innerHTML = wachstumsrateges + ' Mio'
+}
+
+const deutschland = document.querySelector('.germany') as HTMLImageElement
+deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland) });
+
+
+const oesterreich = document.querySelector('.austria') as HTMLImageElement
+oesterreich.addEventListener('click', function () { Heading('Österreich', oesterreich2021, vergleichswertoesterreich, wachstumsraterelativoesterreich, wachstumsrategesamtoesterreich) });
+
+const belgien = document.querySelector('.belgium') as HTMLImageElement
+belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien) });
+
+const bulgarien = document.querySelector('.bulgaria') as HTMLImageElement
+bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien) });
+
