@@ -85,19 +85,19 @@ function Heading(land: string, Einwohnerzahl: number, vergleichswert: number, wa
 
 }
 
-const deutschland = document.querySelector('.germany') as HTMLImageElement
+const deutschland = document.querySelector('.germany').parentElement as HTMLImageElement
 deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland, 'Deutschland', '.germany') });
 
 
-const oesterreich = document.querySelector('.austria') as HTMLImageElement
+const oesterreich = document.querySelector('.austria').parentElement as HTMLImageElement
 oesterreich.addEventListener('click', function () { Heading('Österreich', oesterreich2021, vergleichswertoesterreich, wachstumsraterelativoesterreich, wachstumsrategesamtoesterreich, 'Österreich', '.austria') });
 
-const belgien = document.querySelector('.belgium') as HTMLImageElement
+const belgien = document.querySelector('.belgium').parentElement as HTMLImageElement
 belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien, 'Belgien', '.belgium') });
 
-const bulgarien = document.querySelector('.bulgaria') as HTMLImageElement
+const bulgarien = document.querySelector('.bulgaria').parentElement as HTMLImageElement
 bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien', '.bulgaria') });
 
-const stern = document.querySelector('.stars') as HTMLImageElement
+const stern = document.querySelector('.stars').parentElement as HTMLImageElement
 stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU', '.stars') });
 

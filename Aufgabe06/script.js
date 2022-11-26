@@ -64,14 +64,14 @@ function Heading(land, Einwohnerzahl, vergleichswert, wachstumsrate, wachstumsra
     const vergroessern = document.querySelector(auswahl).parentElement;
     vergroessern.classList.add('active');
 }
-const deutschland = document.querySelector('.germany');
+const deutschland = document.querySelector('.germany').parentElement;
 deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland, 'Deutschland', '.germany'); });
-const oesterreich = document.querySelector('.austria');
+const oesterreich = document.querySelector('.austria').parentElement;
 oesterreich.addEventListener('click', function () { Heading('Österreich', oesterreich2021, vergleichswertoesterreich, wachstumsraterelativoesterreich, wachstumsrategesamtoesterreich, 'Österreich', '.austria'); });
-const belgien = document.querySelector('.belgium');
+const belgien = document.querySelector('.belgium').parentElement;
 belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien, 'Belgien', '.belgium'); });
-const bulgarien = document.querySelector('.bulgaria');
+const bulgarien = document.querySelector('.bulgaria').parentElement;
 bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien', '.bulgaria'); });
-const stern = document.querySelector('.stars');
+const stern = document.querySelector('.stars').parentElement;
 stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU', '.stars'); });
 //# sourceMappingURL=script.js.map
