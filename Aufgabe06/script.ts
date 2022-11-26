@@ -73,6 +73,9 @@ function Heading(land: string, Einwohnerzahl: number, vergleichswert: number, wa
 
     const landwechsel = document.querySelector('.Laendertausch') as HTMLHeadingElement
     landwechsel.innerHTML = 'Gesamtzahl Einwohnerinnen und Einwohner in ' + tausch + ' in 2021'
+
+    const balkendiagramm = document.querySelector('.chart') as HTMLElement
+    balkendiagramm.style.height = `${vergleichswert}%` 
 }
 
 const deutschland = document.querySelector('.germany') as HTMLImageElement
@@ -90,3 +93,4 @@ bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien
 
 const stern = document.querySelector('.stars') as HTMLImageElement
 stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU') });
+

@@ -57,6 +57,8 @@ function Heading(land, Einwohnerzahl, vergleichswert, wachstumsrate, wachstumsra
     Wachstumgsrategesmt.innerHTML = wachstumsrateges + ' Mio';
     const landwechsel = document.querySelector('.Laendertausch');
     landwechsel.innerHTML = 'Gesamtzahl Einwohnerinnen und Einwohner in ' + tausch + ' in 2021';
+    const balkendiagramm = document.querySelector('.chart');
+    balkendiagramm.style.height = `${vergleichswert}%`;
 }
 const deutschland = document.querySelector('.germany');
 deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland, 'Deutschland'); });
