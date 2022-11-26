@@ -55,7 +55,7 @@ console.log(wachstumsraterelativbulgarien + " %")
 let wachstumsrategesamtbulgarien = bulgarien2021 - bulgarien2012
 console.log(wachstumsrategesamtbulgarien + " Mio")
 
-function Heading(land: string, Einwohnerzahl: number, vergleichswert: number, wachstumsrate: number, wachstumsrateges: number, tausch: string) {
+function Heading(land: string, Einwohnerzahl: number, vergleichswert: number, wachstumsrate: number, wachstumsrateges: number, tausch: string, auswahl: string) {
     const ueberschrift = document.querySelector('.ueberschrift') as HTMLHeadingElement
     ueberschrift.innerHTML = "Einwohnerzahl " + land
 
@@ -68,29 +68,36 @@ function Heading(land: string, Einwohnerzahl: number, vergleichswert: number, wa
     const Wachstumsraterel = document.querySelector('.Wachstumsraterelativ') as HTMLHeadingElement
     Wachstumsraterel.innerHTML = wachstumsrate + ' %'
 
-    const Wachstumgsrategesmt = document.querySelector ('.Wachstumsrategesamt') as HTMLHeadingElement
+    const Wachstumgsrategesmt = document.querySelector('.Wachstumsrategesamt') as HTMLHeadingElement
     Wachstumgsrategesmt.innerHTML = wachstumsrateges + ' Mio'
 
     const landwechsel = document.querySelector('.Laendertausch') as HTMLHeadingElement
     landwechsel.innerHTML = 'Gesamtzahl Einwohnerinnen und Einwohner in ' + tausch + ' in 2021'
 
     const balkendiagramm = document.querySelector('.chart') as HTMLElement
-    balkendiagramm.style.height = `${vergleichswert}%` 
+    balkendiagramm.style.height = `${vergleichswert}%`
+
+    const verkleinern = document.querySelector('.active') as HTMLElement
+    verkleinern.classList.remove('active')
+
+    const vergroessern = document.querySelector(auswahl).parentElement as HTMLElement
+    vergroessern.classList.add('active')
+
 }
 
 const deutschland = document.querySelector('.germany') as HTMLImageElement
-deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland, 'Deutschland') });
+deutschland.addEventListener('click', function () { Heading('Deutschland', deutschland2021, vergleichswertdeutschland, wachstumsraterelativdeutschland, wachstumsrategesamtdeutschland, 'Deutschland', '.germany') });
 
 
 const oesterreich = document.querySelector('.austria') as HTMLImageElement
-oesterreich.addEventListener('click', function () { Heading('Österreich', oesterreich2021, vergleichswertoesterreich, wachstumsraterelativoesterreich, wachstumsrategesamtoesterreich, 'Österreich') });
+oesterreich.addEventListener('click', function () { Heading('Österreich', oesterreich2021, vergleichswertoesterreich, wachstumsraterelativoesterreich, wachstumsrategesamtoesterreich, 'Österreich', '.austria') });
 
 const belgien = document.querySelector('.belgium') as HTMLImageElement
-belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien, 'Belgien') });
+belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien, 'Belgien', '.belgium') });
 
 const bulgarien = document.querySelector('.bulgaria') as HTMLImageElement
-bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien') });
+bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien', '.bulgaria') });
 
 const stern = document.querySelector('.stars') as HTMLImageElement
-stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU') });
+stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU', '.stars') });
 
