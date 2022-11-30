@@ -98,6 +98,6 @@ belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, 
 const bulgarien = document.querySelector('.bulgaria').parentElement as HTMLImageElement
 bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien', '.bulgaria') });
 
-const stern = document.querySelector('.stars').parentElement as HTMLImageElement
+const stern = document.querySelector('.stars') as HTMLImageElement
 stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU', '.stars') });
 

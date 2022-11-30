@@ -72,6 +72,6 @@ const belgien = document.querySelector('.belgium').parentElement;
 belgien.addEventListener('click', function () { Heading('Belgien', belgien2021, vergleichswertbelgien, wachstumsraterelativbelgien, wachstumsrategesamtbelgien, 'Belgien', '.belgium'); });
 const bulgarien = document.querySelector('.bulgaria').parentElement;
 bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien2021, vergleichswertbulgarien, wachstumsraterelativbulgarien, wachstumsrategesamtbulgarien, 'Bulgarien', '.bulgaria'); });
-const stern = document.querySelector('.stars').parentElement;
+const stern = document.querySelector('.stars');
 stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU', '.stars'); });
 //# sourceMappingURL=script.js.map
