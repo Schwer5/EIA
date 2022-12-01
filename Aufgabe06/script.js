@@ -10,7 +10,7 @@ const EU2012 = 504;
 const EU2021 = 447.7;
 const EU = 447.7;
 console.log(EU2021 + "Mio");
-let vergleichswertEU = EU2021 * 100 / EU;
+let vergleichswertEU = (EU2021 * 100 / EU);
 console.log(vergleichswertEU + " %");
 let wachstumsraterelativEU = (EU2021 * 100 / EU2012) - 100;
 console.log(wachstumsraterelativEU + " %");
