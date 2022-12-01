@@ -46,7 +46,19 @@ const button12 = document.querySelector('.button12');
 button12.addEventListener('click', function () {
     playsample(new Audio('gf.mp3'));
 });
+const playbutton = document.querySelector('.playbutton');
+playbutton.addEventListener('click', function () {
+    setInterval(function () {
+        playsample(new Audio(array[i]));
+        i++;
+        if (i == 11) {
+            i = 0;
+        }
+    }, 500);
+    var i = 0;
+});
 function playsample(ton) {
     ton.play();
 }
+var array = ['a.mp3', 'af.mp3', 'b.mp3', 'bf.mp3', 'c.mp3', 'd.mp3', 'df.mp3', 'e.mp3', 'ef.mp3', 'f.mp3', 'g.mp3', 'gf.mp3'];
 //# sourceMappingURL=keyboard.js.map
