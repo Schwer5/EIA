@@ -65,11 +65,11 @@ playbutton.addEventListener('click', function () {
         i++
         if (i == 11) { i = 0 }
 
-    }, 500);
+    }, 5000);
 
-    var i = 0
+
 })
-
+var i = 0
 
 function playsample(ton: any) {
     ton.play()

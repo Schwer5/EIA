@@ -54,9 +54,9 @@ playbutton.addEventListener('click', function () {
         if (i == 11) {
             i = 0;
         }
-    }, 500);
-    var i = 0;
+    }, 5000);
 });
+var i = 0;
 function playsample(ton) {
     ton.play();
 }
