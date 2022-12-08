@@ -1,0 +1,150 @@
+body {
+    background-color: gray;
+}
+
+.button1 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: 120px;
+    margin-top: 100px;
+}
+
+.button2 {
+    background-color: black;
+    width: 40px;
+    height: 300px;
+    border-radius: 10px;
+    border-style: none;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button3 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button4 {
+    background-color: black;
+    width: 40px;
+    height: 300px;
+    border-radius: 10px;
+    border-style: none;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button5 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button6 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button7 {
+    background-color: black;
+    width: 40px;
+    height: 300px;
+    border-radius: 10px;
+    border-style: none;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button8 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button9 {
+    background-color: black;
+    width: 40px;
+    height: 300px;
+    border-radius: 10px;
+    border-style: none;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button10 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button11 {
+    background-color: black;
+    width: 40px;
+    height: 300px;
+    border-radius: 10px;
+    border-style: none;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+.button12 {
+    background-color: white;
+    width: 80px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    border-width: 3px;
+    margin-left: -4px;
+    margin-top: 100px;
+}
+
+
+
+.playbutton {
+    position: fixed;
+    top: 410px;
+    left: 400px;
+}
+
+.active {
+opacity: 0.5;
+
+}
