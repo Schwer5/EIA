@@ -146,7 +146,7 @@ body {
 }
 
 .active {
-    opacity: 0.5;
+    color: blueviolet;
 
 }
 
@@ -157,3 +157,4 @@ body {
 .fa-stop {
     color: blue;
 }
+
