@@ -88,3 +88,12 @@ function playsample(ton: any) {
 
 var array = ['a.mp3', 'af.mp3', 'b.mp3', 'bf.mp3', 'c.mp3', 'd.mp3', 'df.mp3', 'e.mp3', 'ef.mp3', 'f.mp3', 'g.mp3', 'gf.mp3']
 
+const shuffle = document.querySelector('.shufflebutton') as HTMLImageElement
+shuffle.addEventListener('click', function () {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        let temporary = array[j]
+        array[j] = array[i]
+        array[i] = temporary
+    }
+})
