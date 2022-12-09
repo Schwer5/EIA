@@ -59,21 +59,26 @@ button12.addEventListener('click', function () {
 })
 
 const playbutton = document.querySelector('.playbutton') as HTMLImageElement
+let intervalID = 0
 playbutton.addEventListener('click', function () {
-    setInterval(function () {
-        playsample(new Audio(array[i]))
-        i++
-        if (i == 11) { i = 0 }
 
-    }, 500);
+
     let button: HTMLImageElement = document.querySelector('.playbutton');
-    if (button.classList.contains('active')) {
-        button.classList.remove('active');
+    if (button.classList.contains('fa-play')) {
+        button.classList.remove('fa-play')
+        button.classList.add('fa-stop')
+        intervalID = setInterval(function () {
+            playsample(new Audio(array[i]))
+            i++
+            if (i == 11) { i = 0 }
+
+        }, 500);
     }
     else {
-        button.classList.add('active');
+        button.classList.remove('fa-stop')
+        button.classList.add('fa-play')
+        clearInterval(intervalID)
     }
-
 })
 var i = 0
 

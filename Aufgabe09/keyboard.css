@@ -142,9 +142,18 @@ body {
     position: fixed;
     top: 410px;
     left: 400px;
+
 }
 
 .active {
-opacity: 0.5;
+    opacity: 0.5;
 
+}
+
+.fa-play {
+    color: aqua;
+}
+
+.fa-stop {
+    color: blue;
 }
