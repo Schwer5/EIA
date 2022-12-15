@@ -19,15 +19,39 @@ function h2() {
     ueberschrift.innerHTML = todo.length + ' in total'
 }
 
-h2()
 
 function tabelle() {
-    const table = document.querySelector('.todo') as HTMLHeadingElement
+    
     for (let index: number = 0; index < todo.length; index++) {
-        const machen = document.createElement("div")
-        machen.textContent = todo[index].name;
-        table.appendChild(machen)
+        tabelleadd(todo[index].name)
     }
 }
 
+function eingabe(eintippen: string) {
+    let newtodo: ToDo = { name: eintippen }
+    todo.push(newtodo)
+    tabelleadd (newtodo.name)
+}
+
+function tabelleadd(addstring: string){
+    const table = document.querySelector('.todo') as HTMLHeadingElement
+    const machen = document.createElement("li")
+    machen.textContent = addstring;
+    let checkbox = document.createElement('input')
+    checkbox.type = 'checkbox'
+    let muell = document.createElement('i')
+    muell.addEventListener('click', function(){muell.parentElement.remove()})
+    muell.classList.add('fa-trash')
+    muell.classList.add('fas')
+    machen.appendChild(checkbox)
+    machen.appendChild(muell)
+    table.appendChild(machen)
+
+}
+
+h2()
 tabelle()
+
+const textinput = document.getElementById('neuetodoeinfuegen') as HTMLInputElement
+const form = document.querySelector('.inputform') as HTMLFormElement
+form.addEventListener('submit', function () {eingabe(textinput.value) })
