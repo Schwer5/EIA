@@ -11,7 +11,23 @@ let todo: ToDo[] = [{
 { name: 'Freudentanz' }
 ]
 
-for (let index: number = 0; index < todo.length; index++) {
-    console.log(todo[index].name)
+
+
+
+function h2() {
+    const ueberschrift = document.querySelector('.anzahl') as HTMLHeadingElement
+    ueberschrift.innerHTML = todo.length + ' in total'
 }
 
+h2()
+
+function tabelle() {
+    const table = document.querySelector('.todo') as HTMLHeadingElement
+    for (let index: number = 0; index < todo.length; index++) {
+        const machen = document.createElement("div")
+        machen.textContent = todo[index].name;
+        table.appendChild(machen)
+    }
+}
+
+tabelle()
