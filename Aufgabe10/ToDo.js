@@ -32,7 +32,7 @@ function tabelleadd(addtodo) {
     var muell = document.createElement('i');
     muell.addEventListener('click', function () { muell.parentElement.remove(); h2(); });
     muell.classList.add('fa-trash');
-    muell.classList.add('fa-5x');
+    muell.classList.add('fa-3x');
     muell.classList.add('fas');
     machen.appendChild(checkbox);
     machen.append(addtodo.name);
