@@ -16,7 +16,7 @@ interface ToDo {
     name: string;
     checked: boolean;
 }
-var todosText: ToDo[] =      [{name:"Lorem", checked:true} , {name:"Ipsum", checked:false} , {name:"Dolor", checked:false}];
+var ToDosListe: ToDo[] =      [{name:"Lorem", checked:true} , {name:"Ipsum", checked:false} , {name:"Dolor", checked:false}];
 
 /**
  * Die Anwendung wird immer wieder auf die selben
@@ -64,7 +64,7 @@ function drawListToDOM(): void {
     todosDOMElement.innerHTML = "";
 
     // das ToDo-Array durchlaufen (iterieren) und Todo für Todo in den DOM schreiben
-    for (let index: number = 0; index < todosText.length; index++) {
+    for (let index: number = 0; index < ToDosListe.length; index++) {
 
         /**
          * Neues DIV-Element erstellen (würde auch mit innerHTML = "<div class='todo'></div>" gehen, 
@@ -83,8 +83,8 @@ function drawListToDOM(): void {
          * ein Wert einer Variablen benötigt (bspw. für die CSS Klasse oder für den ToDo-Text),
          * hier muss die Zeichenkette unterbrochen werden.
          */
-        todo.innerHTML =  "<span class='check " + todosChecked[index] + "'><i class='fas fa-check'></i></span>"
-                            + todosText[index] +
+        todo.innerHTML =  "<span class='check " + ToDosListe[index].checked + "'><i class='fas fa-check'></i></span>"
+                            + ToDosListe[index].name +
                             "<span class='trash fas fa-trash-alt'></span>";
 
         // Zuweisen der Event-Listener für den Check- und den Trash-Button
@@ -107,7 +107,7 @@ function drawListToDOM(): void {
 }
 
 function updateCounter(): void {
-    counterDOMElement.innerHTML = todosText.length + " in total";
+    counterDOMElement.innerHTML = ToDosListe.length + " in total";
 }
 
 /**
@@ -127,8 +127,8 @@ function addTodo(): void {
          * Status der ToDos abbildet, für dieses ToDo (weil selbe Stelle im Array)
          * der Status "unchecked", hier false, gepusht.
          */
-        todosText.push(inputDOMElement.value);
-        todosChecked.push(false);
+        ToDosListe.push({name:inputDOMElement.value, checked:false})
+
         
         // Jetzt wird der Text aus dem Eingabefeld gelöscht
         inputDOMElement.value = "";
@@ -159,7 +159,7 @@ function toggleCheckState(index: number): void {
      * Alternativ könnte man hier natürlich auch andere Schreibweisen (wie sie im
      * Kurs behandelt wurden) nutzen.
      */
-    todosChecked[index] = !todosChecked[index];
+    ToDosListe[index].checked = !ToDosListe[index].checked;
 
     /**
      * Die zentrale Funktion, um die Liste des ToDo-Arrays in den DOM zu rendern
@@ -178,8 +178,7 @@ function deleteTodo(index: number): void {
      * Jetzt muss diese Stelle beider Arrays gelöscht werden,
      * das ToDo-Text-Array und das Checked/Unchecked-Array
      */
-    todosText.splice(index, 1);
-    todosChecked.splice(index, 1);
+    ToDosListe.splice(index, 1);
     
     /**
      * Die zentrale Funktion, um die Liste des ToDo-Arrays in den DOM zu rendern
