@@ -111,7 +111,7 @@ function addTodo() {
          * Status der ToDos abbildet, für dieses ToDo (weil selbe Stelle im Array)
          * der Status "unchecked", hier false, gepusht.
          */
-        ToDosListe.push({ name: inputDOMElement.value, checked: false });
+        ToDosListe.unshift({ name: inputDOMElement.value, checked: false });
         // Jetzt wird der Text aus dem Eingabefeld gelöscht
         inputDOMElement.value = "";
         /**
