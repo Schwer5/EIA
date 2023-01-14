@@ -19,3 +19,13 @@ margin-right: 10px;
     float: left;
     margin-left: 10px;
     }
+
+.headline h1{
+color: blue;
+text-align: center;
+}
+
+.text p {
+    text-align: center;
+    color: orange;
+}

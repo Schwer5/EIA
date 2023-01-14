@@ -11,7 +11,7 @@
  * Werte, bspw. Stelle 0 im Array todosText und Stelle 0 im Array
  * todosChecked gehören zusammen zu einem ToDo.
  */
-var ToDosListe = [{ name: "Lorem", checked: true }, { name: "Ipsum", checked: false }, { name: "Dolor", checked: false }];
+var Questionlist = [{ type: "html", questiontext: 'Was heißt HTML?', correctanswer: 'Hyper Text Markup Language', wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'], infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...' }];
 /**
  * Die Anwendung wird immer wieder auf die selben
  * DOM-Elemente zugreifen müssen. Damit diese Elemente nicht

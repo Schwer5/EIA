@@ -12,11 +12,14 @@
  * todosChecked gehören zusammen zu einem ToDo.
  */
 
-interface ToDo {
-    name: string;
-    checked: boolean;
+interface Question {
+    type: string;
+    questiontext: string;
+    correctanswer: string;
+    wronganswers: string[];
+    infotext: string;
 }
-var ToDosListe: ToDo[] =      [{name:"Lorem", checked:true} , {name:"Ipsum", checked:false} , {name:"Dolor", checked:false}];
+var Questionlist: Question[] = [{ type: "html", questiontext: 'Was heißt HTML?', correctanswer: 'Hyper Text Markup Language', wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'], infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...' ];
 
 /**
  * Die Anwendung wird immer wieder auf die selben
@@ -34,7 +37,7 @@ var counterDOMElement: HTMLElement;
  * Sobald der DOM geladen wurde können grundlegende DOM-Interaktionen
  * initialisiert werden
  */
-window.addEventListener("load", function(): void {
+window.addEventListener("load", function (): void {
 
     /**
      * Jetzt da der DOM verfügbar ist können die wichtigsten Elemente
@@ -83,17 +86,17 @@ function drawListToDOM(): void {
          * ein Wert einer Variablen benötigt (bspw. für die CSS Klasse oder für den ToDo-Text),
          * hier muss die Zeichenkette unterbrochen werden.
          */
-        todo.innerHTML =  "<span class='check " + ToDosListe[index].checked + "'><i class='fas fa-check'></i></span>"
-                            + ToDosListe[index].name +
-                            "<span class='trash fas fa-trash-alt'></span>";
+        todo.innerHTML = "<span class='check " + ToDosListe[index].checked + "'><i class='fas fa-check'></i></span>"
+            + ToDosListe[index].name +
+            "<span class='trash fas fa-trash-alt'></span>";
 
         // Zuweisen der Event-Listener für den Check- und den Trash-Button
-        todo.querySelector(".check").addEventListener("click", function(): void {
+        todo.querySelector(".check").addEventListener("click", function (): void {
             // hier wird der Index, also die aktuelle Stelle im Array dieses ToDos,
             // übergeben, damit an der entsprechenden Stelle im Array der Wert geändert werden kann.
             toggleCheckState(index);
         });
-        todo.querySelector(".trash").addEventListener("click", function(): void {
+        todo.querySelector(".trash").addEventListener("click", function (): void {
             // hier wird der Index, also die aktuelle Stelle im Array dieses ToDos,
             // übergeben, damit die entsprechende Stelle im Array gelöscht werden kann.
             deleteTodo(index);
@@ -127,9 +130,9 @@ function addTodo(): void {
          * Status der ToDos abbildet, für dieses ToDo (weil selbe Stelle im Array)
          * der Status "unchecked", hier false, gepusht.
          */
-        ToDosListe.unshift({name:inputDOMElement.value, checked:false})
+        ToDosListe.unshift({ name: inputDOMElement.value, checked: false })
 
-        
+
         // Jetzt wird der Text aus dem Eingabefeld gelöscht
         inputDOMElement.value = "";
 
@@ -179,7 +182,7 @@ function deleteTodo(index: number): void {
      * das ToDo-Text-Array und das Checked/Unchecked-Array
      */
     ToDosListe.splice(index, 1);
-    
+
     /**
      * Die zentrale Funktion, um die Liste des ToDo-Arrays in den DOM zu rendern
      * wird wieder getriggert
