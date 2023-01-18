@@ -19,7 +19,7 @@ interface Question {
     wronganswers: string[];
     infotext: string;
 }
-let visiblequestionlist: Question[]=[]
+let visiblequestionlist: Question[] = []
 let Questionlist: Question[] = [
     {
         type: "html",
@@ -66,37 +66,58 @@ window.addEventListener("load", function (): void {
      * in ihre Variablen gespeichert werden, um später auf sie 
      * zugreifen zu können
      */
-   
+
     startButtonDOMElement = document.querySelector("#btn-start");
-    
+
 
     /**
      * Jetzt da der DOM verfügbar ist kann auch ein Event-Listener
      * auf den AddToDo Button gesetzt werden.
      */
-    
-    startButtonDOMElement.addEventListener("click",selectquestiontype);
+
+    startButtonDOMElement.addEventListener("click", selectquestiontype);
 
     /**
      * Initial soll einmal die Liste an bereit definierten ToDos
      * aus den Arrays in den DOM gezeichnet werden.
      */
-  
 });
+
+/**erstellt Liste */
 function selectquestiontype(): void {
     var selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
-    var selectedtype= selectedradiobutton.value 
-    
-    for (let index = 0; index<Questionlist.length; index++){
-        if (Questionlist[index].type==selectedtype){
+    var selectedtype = selectedradiobutton.value
+
+    for (let index = 0; index < Questionlist.length; index++) {
+        if (Questionlist[index].type == selectedtype) {
             visiblequestionlist.push(Questionlist[index])
         }
     }
-    if (selectedtype=='mixed'){
-        visiblequestionlist=Questionlist
+    if (selectedtype == 'mixed') {
+        visiblequestionlist = Questionlist
     }
-    let text = document.querySelector('.text') as HTMLHeadingElement
+    showquestion()
+}
+
+function showquestion(): void {
+    let text = document.querySelector('.text') as HTMLElement
     text.innerHTML = (visiblequestionlist[0].questiontext)
+    let selection = document.querySelector('.selection') as HTMLElement
+    selection.innerHTML = ''
+    let answerlist: string[] = visiblequestionlist[0].wronganswers
+    let correctanswernumber: number = 2
+    answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer)
+    for (let index: number = 0; index < Questionlist.length; index++) {
+        let answer: HTMLElement = document.createElement('div')
+        answer.innerHTML=' <input type="radio" id="answer-'+index+'" name="radio" value="'+index+'"><label for="answer-'+index+'">'+answerlist[index]+'</label>'
+        selection.appendChild(answer)
+    }
+    
+    let button = document.querySelector('.button') as HTMLElement
+    button.innerHTML= ''
+    button
+    
+
 }
 
 

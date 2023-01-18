@@ -64,6 +64,7 @@ window.addEventListener("load", function () {
      * aus den Arrays in den DOM gezeichnet werden.
      */
 });
+/**erstellt Liste */
 function selectquestiontype() {
     var selectedradiobutton = document.querySelector('input[name="radio"]:checked');
     var selectedtype = selectedradiobutton.value;
@@ -75,6 +76,22 @@ function selectquestiontype() {
     if (selectedtype == 'mixed') {
         visiblequestionlist = Questionlist;
     }
+    showquestion();
+}
+function showquestion() {
     var text = document.querySelector('.text');
     text.innerHTML = (visiblequestionlist[0].questiontext);
+    var selection = document.querySelector('.selection');
+    selection.innerHTML = '';
+    var answerlist = visiblequestionlist[0].wronganswers;
+    var correctanswernumber = 2;
+    answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer);
+    for (var index = 0; index < Questionlist.length; index++) {
+        var answer = document.createElement('div');
+        answer.innerHTML = ' <input type="radio" id="answer-' + index + '" name="radio" value="' + index + '"><label for="answer-' + index + '">' + answerlist[index] + '</label>';
+        selection.appendChild(answer);
+    }
+    var button = document.querySelector('.button');
+    button.innerHTML = '';
+    button;
 }
