@@ -19,7 +19,8 @@ interface Question {
     wronganswers: string[];
     infotext: string;
 }
-var Questionlist: Question[] = [
+let visiblequestionlist: Question[]=[]
+let Questionlist: Question[] = [
     {
         type: "html",
         questiontext: 'Was heißt HTML?',
@@ -34,7 +35,13 @@ var Questionlist: Question[] = [
         wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
         infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
     },
-
+    {
+        type: "TypeScript",
+        questiontext: 'Was ist TypeScript?',
+        correctanswer: 'Blablabla richtig',
+        wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
+        infotext: 'TypeScript ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
+    },
 ]
 
 /**
@@ -77,6 +84,20 @@ window.addEventListener("load", function (): void {
   
 });
 function selectquestiontype(): void {
-    var selectedtype: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
-    alert(selectedtype.value)
+    var selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
+    var selectedtype= selectedradiobutton.value 
+    
+    for (let index = 0; index<Questionlist.length; index++){
+        if (Questionlist[index].type==selectedtype){
+            visiblequestionlist.push(Questionlist[index])
+        }
+    }
+    if (selectedtype=='mixed'){
+        visiblequestionlist=Questionlist
+    }
+    let text = document.querySelector('.text') as HTMLHeadingElement
+    text.innerHTML = (visiblequestionlist[0].questiontext)
 }
+
+
+

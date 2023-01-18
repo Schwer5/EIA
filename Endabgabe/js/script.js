@@ -11,6 +11,7 @@
  * Werte, bspw. Stelle 0 im Array todosText und Stelle 0 im Array
  * todosChecked gehören zusammen zu einem ToDo.
  */
+var visiblequestionlist = [];
 var Questionlist = [
     {
         type: "html",
@@ -25,6 +26,13 @@ var Questionlist = [
         correctanswer: 'Hyper Text Markup Language',
         wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
         infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
+    },
+    {
+        type: "TypeScript",
+        questiontext: 'Was ist TypeScript?',
+        correctanswer: 'Blablabla richtig',
+        wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
+        infotext: 'TypeScript ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
     },
 ];
 /**
@@ -57,6 +65,16 @@ window.addEventListener("load", function () {
      */
 });
 function selectquestiontype() {
-    var selectedtype = document.querySelector('input[name="radio"]:checked');
-    alert(selectedtype.value);
+    var selectedradiobutton = document.querySelector('input[name="radio"]:checked');
+    var selectedtype = selectedradiobutton.value;
+    for (var index = 0; index < Questionlist.length; index++) {
+        if (Questionlist[index].type == selectedtype) {
+            visiblequestionlist.push(Questionlist[index]);
+        }
+    }
+    if (selectedtype == 'mixed') {
+        visiblequestionlist = Questionlist;
+    }
+    var text = document.querySelector('.text');
+    text.innerHTML = (visiblequestionlist[0].questiontext);
 }

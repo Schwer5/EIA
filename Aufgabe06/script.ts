@@ -101,3 +101,4 @@ bulgarien.addEventListener('click', function () { Heading('Bulgarien', bulgarien
 const stern = document.querySelector('.stars') as HTMLImageElement
 stern.addEventListener('click', function () { Heading('EU', EU2021, vergleichswertEU, wachstumsraterelativEU, wachstumsrategesamtEU, 'EU', '.stars') });
 
+z
