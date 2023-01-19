@@ -39,7 +39,7 @@ let Questionlist: Question[] = [
     {
         type: "html",
         questiontext: 'Was gehört zu HTML?',
-        correctanswer: '<p>',
+        correctanswer: '&lt;p&gt;',
         wronganswers: ['background-color', 'var', '.addEventListener'],
         infotext: 'Es geht in HTML um beschreibende (englisch descriptive), nicht um verfahrens- (englisch procedural) und darstellungsorientierte (englisch presentational) Textauszeichnung, auch wenn sich HTML in früheren Versionen dafür verwenden ließ. Schaue hier: https://www.w3schools.com/html/html_intro.asp'
     },
@@ -197,11 +197,17 @@ function selectquestiontype(): void {
 }
 
 function showquestion(): void {
+    let headline = document.querySelector('.headline') as HTMLElement
+    headline.innerHTML = ''
     let text = document.querySelector('.text') as HTMLElement
     text.innerHTML = (visiblequestionlist[0].questiontext)
     let selection = document.querySelector('.selection') as HTMLElement
     selection.innerHTML = ''
-    let answerlist: string[] = visiblequestionlist[0].wronganswers
+    let answerlist: string[] = []
+    for (let index = 0; index < answerlist.length; index++) {
+        answerlist.push(visiblequestionlist[0].wronganswers[index])
+    }
+
     answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer)
     console.log(answerlist)
     for (let index: number = 0; index < answerlist.length; index++) {

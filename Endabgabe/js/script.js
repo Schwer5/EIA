@@ -31,7 +31,7 @@ var Questionlist = [
     {
         type: "html",
         questiontext: 'Was gehört zu HTML?',
-        correctanswer: '<p>',
+        correctanswer: '&lt;p&gt;',
         wronganswers: ['background-color', 'var', '.addEventListener'],
         infotext: 'Es geht in HTML um beschreibende (englisch descriptive), nicht um verfahrens- (englisch procedural) und darstellungsorientierte (englisch presentational) Textauszeichnung, auch wenn sich HTML in früheren Versionen dafür verwenden ließ. Schaue hier: https://www.w3schools.com/html/html_intro.asp'
     },
@@ -171,11 +171,16 @@ function selectquestiontype() {
     showquestion();
 }
 function showquestion() {
+    var headline = document.querySelector('.headline');
+    headline.innerHTML = '';
     var text = document.querySelector('.text');
     text.innerHTML = (visiblequestionlist[0].questiontext);
     var selection = document.querySelector('.selection');
     selection.innerHTML = '';
-    var answerlist = visiblequestionlist[0].wronganswers;
+    var answerlist = [];
+    for (var index = 0; index < answerlist.length; index++) {
+        answerlist.push(visiblequestionlist[0].wronganswers[index]);
+    }
     answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer);
     console.log(answerlist);
     for (var index = 0; index < answerlist.length; index++) {
