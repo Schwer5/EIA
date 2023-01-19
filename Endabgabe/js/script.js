@@ -1,20 +1,20 @@
 /**
- * Die ToDos werden in dem Array todosText gespeichert
- * Jedes ToDo hat aber, neben dem ToDo-Text, einen zweiten
- * Wert, nämlich ob es erledigt ist oder nicht
- * (checked / unchecked). Der Einsatz von einem eindimensionalen
- * Array ermöglicht aber nur, dass wir ein Wert nach dem anderen auflisten.
- * Den zweiten Wert zu einem ToDo speichern wir also in einem
- * zweiten Array. Beide Arrays beinhalten also Infos zu einem ToDo,
- * den ToDo-Text und den Erledigtstatus eines ToDos. Die entsprechende
- * Stelle eines ToDos zeigt jetzt in den Arrays auf die entsprechenden
- * Werte, bspw. Stelle 0 im Array todosText und Stelle 0 im Array
- * todosChecked gehören zusammen zu einem ToDo.
+ * Hier erstellen wir Variablen, die wir später benötigen.
+ * correctanswernumber=2 weil:
+ * currentpoints=0 weil man bei 0 Punkten anfängt zu zählen.
+ * winpoints=2 kann man beliebig einstellen, je nachdem wie viel Punkte man erreichen soll um zu gewinnen.
+ * die visiblequestionlist ist die Variable in der eine Frage aus dem Array angezeigt werden soll.
+ * Question ist hierbei der Typ des Arrays.
  */
 var correctanswernumber = 2;
 var currentpoints = 0;
 var winpoints = 2;
 var visiblequestionlist = [];
+/**
+ * Die Fragen werden in dem Array Questionlist gespeichert
+ * Frage hat einen Fragetyp (type), einen questiontext, eine correctanswer
+ * eine wronganswer und einen infotext
+ */
 var Questionlist = [
     {
         type: "html",

@@ -1,6 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: rgba(215, 215, 215);
+    background: rgb(38, 152, 175);
+
 }
 
 .footer {
@@ -8,24 +9,48 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    color:grey;
+    color: rgb(133, 215, 232);
 }
+
 #number {
-float: right;
-margin-right: 10px;
+    float: right;
+    margin-right: 10px;
 }
 
 #name {
     float: left;
     margin-left: 10px;
-    }
-
-.headline h1{
-color: blue;
-text-align: center;
 }
 
-.text p {
+.headline h1 {
+    color: rgb(5, 40, 73);
     text-align: center;
-    color: orange;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.text {
+    text-align: center;
+    color: rgb(141, 234, 230);
+    margin-top: 60px;
+}
+
+.selection {
+    margin: auto;
+    width: 60%;
+}
+
+.selectwinpoints {
+    margin: auto;
+    width: 60%;
+}
+
+.button {
+    text-align: center;
+}
+
+.button #btn-start {
+    background-color: rgb(4, 52, 52);
+    color: white;
+    border-radius: 6px;
+    border: 3px;
 }
