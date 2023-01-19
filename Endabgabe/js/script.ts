@@ -19,29 +19,120 @@ interface Question {
     wronganswers: string[];
     infotext: string;
 }
+let correctanswernumber: number = 2
 let visiblequestionlist: Question[] = []
 let Questionlist: Question[] = [
     {
         type: "html",
         questiontext: 'Was heißt HTML?',
         correctanswer: 'Hyper Text Markup Language',
-        wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
-        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
+        wronganswers: ['Heute tauscht Martin Lampen ', 'Hyper text marketing Language', 'Hyper Text Markup Listener'],
+        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+    },
+    {
+        type: "html",
+        questiontext: 'Die visuelle Darstellung ist...',
+        correctanswer: '...nicht Teil der HTML-Spezifikationen',
+        wronganswers: ['...teilweise Teil der HTML-Spezifikationen ', '...Teil der HTML-Spezifikationen', '...großer Teil der HTML-Spezifikationen'],
+        infotext: 'Ausnahme sind die als veraltet (englisch deprecated) markierten präsentationsbezogenen Elemente. Schaue hier:https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+    },
+    {
+        type: "html",
+        questiontext: 'Was gehört zu HTML?',
+        correctanswer: '<p>',
+        wronganswers: ['background-color', 'var', '.addEventListener'],
+        infotext: 'Es geht in HTML um beschreibende (englisch descriptive), nicht um verfahrens- (englisch procedural) und darstellungsorientierte (englisch presentational) Textauszeichnung, auch wenn sich HTML in früheren Versionen dafür verwenden ließ. Schaue hier: https://www.w3schools.com/html/html_intro.asp'
+    },
+    {
+        type: "html",
+        questiontext: 'HTML ist eine...?',
+        correctanswer: 'Auszeichnungssprache',
+        wronganswers: ['Programmiersprache', 'Skriptsprache', 'Zeichensprache'],
+        infotext: 'Eine Gemeinsamkeit mit den meisten Programmiersprachen ist, dass für die Bearbeitung der Quelldokumente keine spezielle Software (siehe auch Liste von HTML-Editoren) nötig ist, sondern ein beliebiger Texteditor ausreicht. Schaue hier: https...'
+    },
+    {
+        type: "html",
+        questiontext: 'Was heißt HTML?',
+        correctanswer: 'Hyper Text Markup Language',
+        wronganswers: ['Heute tauscht Martin Lampen ', 'Hyper text marketing Language', 'Hyper Text Markup Listener'],
+        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+    },
+
+
+    {
+        type: "css",
+        questiontext: 'CSS ist eine...',
+        correctanswer: '...Stylesheet-Sprache',
+        wronganswers: ['...Programmiersprache', '...Zeichensprache', '...Skriptsprache'],
+        infotext: 'Für elektronische Dokumente und zusammen mit HTML und JavaScript eine der Kernsprachen des World Wide Webs.. Schaue hier:https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
     },
     {
         type: "css",
         questiontext: 'Was heißt CSS?',
-        correctanswer: 'Hyper Text Markup Language',
-        wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
-        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
+        correctanswer: 'Cascading Style Sheets',
+        wronganswers: ['coding speed sheets', 'copie styles soon', 'come soon styles'],
+        infotext: 'gestufte Gestaltungsbögen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+    },
+    {
+        type: "css",
+        questiontext: 'Kann CSS in Kombination mit HTML genutzt werden?',
+        correctanswer: 'Ja',
+        wronganswers: ['Kommt drauf an', 'Nein', 'Teilweise'],
+        infotext: 'CSS wurde entworfen, um Darstellungsvorgaben weitgehend von den Inhalten zu trennen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+    },
+    {
+        type: "css",
+        questiontext: 'CSS wurde entworfen, um...',
+        correctanswer: '... Darstellungsvorgaben weitgehend von den Inhalten zu trennen',
+        wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln', '...'],
+        infotext: 'gestufte Gestaltungsbögen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+    },
+    {
+        type: "css",
+        questiontext: 'Kann CSS in Kombination mit HTML genutzt werden?',
+        correctanswer: 'Ja',
+        wronganswers: ['Kommt drauf an', 'Nein', 'Teilweise'],
+        infotext: 'CSS wurde entworfen, um Darstellungsvorgaben weitgehend von den Inhalten zu trennen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+    },
+
+
+
+    {
+        type: "TypeScript",
+        questiontext: 'TypeScript schließt Lücken im Programmierkonzept von JavaScript durch:',
+        correctanswer: 'strikte Typisierung',
+        wronganswers: ['schnellere Rechenfähigkeit', 'errechnen von Fehlern', 'bessere Leistung'],
+        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
     },
     {
         type: "TypeScript",
-        questiontext: 'Was ist TypeScript?',
-        correctanswer: 'Blablabla richtig',
-        wronganswers: ['Falsche Antwort 1 ', 'Falsche Antwort 2', 'Falsche Antwort 3'],
-        infotext: 'TypeScript ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https...'
+        questiontext: 'Die visuelle Darstellung ist...',
+        correctanswer: '...nicht Teil von TypeScript',
+        wronganswers: ['...teilweise Teil von TypeScript', '...manchmal Teil von TypeScript', '...ein großer Teil von TypeScript'],
+        infotext: 'TypeScript ist eine von Microsoft entwickelte Skriptsprache, die auf den Vorschlägen zum ECMAScript-6-Standard basiert.. Schaue hier:https://de.wikipedia.org/wiki/TypeScript'
     },
+    {
+        type: "TypeScript",
+        questiontext: 'TypeScript erweitert',
+        correctanswer: 'JavaScript',
+        wronganswers: ['C++', 'Python', 'C#'],
+        infotext: 'Erweitert JavaScript zu einer Programmiersprache, die den Anforderungen an eine Hochsprache wie Java oder C++ näher kommen. Schaue hier: https://www.w3schools.com/css/default.asp'
+    },
+    {
+        type: "TypeScript",
+        questiontext: 'Welches ist richtig?',
+        correctanswer: 'let names: string;',
+        wronganswers: ['Let names: string;', 'lets name: string;', 'let age: numbers;'],
+        infotext: '1. Schlüsselwort zur Deklaration einer Variable. 2. Bezeichnung. 3. Typ Schaue hier: https://www.w3schools.com/css/default.asp'
+    },
+    {
+        type: "TypeScript",
+        questiontext: 'Was passiert hier: 12%5?',
+        correctanswer: 'Gibt Restwert zurück, also 2',
+        wronganswers: ['Gibt die Zahl an durch die maximal dividiert werden kann an, also 2', 'Dividiert, also 2.4', 'Dividiert 5 durch 12, also ca. 0.416'],
+        infotext: 'Wird Modulo genannt. Schaue hier: https://www.tutorialspoint.com/typescript/typescript_operators.htm'
+    },
+
 ]
 
 /**
@@ -83,11 +174,17 @@ window.addEventListener("load", function (): void {
      */
 });
 
-/**erstellt Liste */
+/**
+ * Hier schaut die Funktion, welcher Fragentyp ausgewählt ist. Dann erstellen wir eine variable die selectedtype heißt, welche 
+ * den value, den Wert der Umfrage annimmt welches HTML, CSS oder TypeScript sein könnte. 
+ * In der for-Schleife soll nun die Liste hochgezählt werden von 0 an. In der if-Schleife; ob der type der Liste mit dem 
+ * vorher definierten selectedtype übereinstimmt. Wenn ja soll die Frage angezeigt werden. Falls der typ 'mixed' ausgewählt 
+ * sein sollte, dann sollen alle Fragen aus der Questionlist zur verfügung gestellt werden und keine Spezielle.
+ */
 function selectquestiontype(): void {
     var selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
-    var selectedtype = selectedradiobutton.value
-
+    var selectedtype: string = selectedradiobutton.value
+    console.log(selectedradiobutton)
     for (let index = 0; index < Questionlist.length; index++) {
         if (Questionlist[index].type == selectedtype) {
             visiblequestionlist.push(Questionlist[index])
@@ -105,20 +202,46 @@ function showquestion(): void {
     let selection = document.querySelector('.selection') as HTMLElement
     selection.innerHTML = ''
     let answerlist: string[] = visiblequestionlist[0].wronganswers
-    let correctanswernumber: number = 2
     answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer)
-    for (let index: number = 0; index < Questionlist.length; index++) {
+    console.log(answerlist)
+    for (let index: number = 0; index < answerlist.length; index++) {
         let answer: HTMLElement = document.createElement('div')
-        answer.innerHTML=' <input type="radio" id="answer-'+index+'" name="radio" value="'+index+'"><label for="answer-'+index+'">'+answerlist[index]+'</label>'
+        answer.innerHTML = ' <input type="radio" id="answer-' + index + '" name="radio" value="' + index + '"><label for="answer-' + index + '">' + answerlist[index] + '</label>'
         selection.appendChild(answer)
     }
-    
-    let button = document.querySelector('.button') as HTMLElement
-    button.innerHTML= ''
-    button
-    
 
+    let button = document.querySelector('.button') as HTMLElement
+    button.innerHTML = ''
+    button.innerHTML = '<button id="btn-start">Antworten</button>'
+    let innerbutton = document.querySelector('#btn-start')
+    innerbutton.addEventListener('click', checkanswer)
 }
 
+function checkanswer(): void {
+    let selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
+    let selectedanswer = parseInt(selectedradiobutton.value)
+    let headline = document.querySelector('.headline') as HTMLElement
+    if (selectedanswer == correctanswernumber) {
+        visiblequestionlist.splice(0, 1)
+        headline.innerHTML = 'Deine Antwort war richtig!'
+
+    } else {
 
 
+        headline.innerHTML = 'Deine Antwort war leider falsch.'
+    }
+    showcorrection()
+}
+
+function showcorrection(): void {
+
+    let text = document.querySelector('.text') as HTMLElement
+    text.innerHTML = visiblequestionlist[0].infotext
+    let selection = document.querySelector('.selection') as HTMLElement
+    selection.innerHTML = ''
+    let button = document.querySelector('.button') as HTMLElement
+    button.innerHTML = ''
+    button.innerHTML = '<button id="btn-start">Weiter</button>'
+    let innerbutton = document.querySelector('#btn-start')
+    innerbutton.addEventListener('click', showquestion)
+}
