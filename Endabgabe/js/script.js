@@ -161,6 +161,10 @@ window.addEventListener("load", function () {
 function selectquestiontype() {
     var selectedradiobutton = document.querySelector('input[name="radio"]:checked');
     var selectedtype = selectedradiobutton.value;
+    var selectedwinpointsradiobutton = document.querySelector('input[name="winpoints"]:checked');
+    winpoints = parseInt(selectedwinpointsradiobutton.value);
+    var deletewinpointsselection = document.querySelector('.selectwinpoints');
+    deletewinpointsselection.innerHTML = '';
     for (var index = 0; index < Questionlist.length; index++) {
         if (Questionlist[index].type == selectedtype) {
             visiblequestionlist.push(Questionlist[index]);
@@ -215,14 +219,15 @@ function checkanswer() {
     var selectedanswer = parseInt(selectedradiobutton.value);
     var headline = document.querySelector('.headline');
     if (selectedanswer == correctanswernumber) {
-        visiblequestionlist.splice(0, 1);
         headline.innerHTML = 'Deine Antwort war richtig!';
         currentpoints++;
         updateCounter();
     }
     else {
-        headline.innerHTML = 'Deine Antwort war leider falsch.';
+        headline.innerHTML = '<div style="background-color:red">Deine Antwort war leider falsch.</div>';
+        visiblequestionlist.push(visiblequestionlist[0]);
     }
+    visiblequestionlist.splice(0, 1);
     if (currentpoints >= winpoints) {
         showwinscreen();
     }

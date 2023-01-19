@@ -184,8 +184,12 @@ window.addEventListener("load", function (): void {
  * sein sollte, dann sollen alle Fragen aus der Questionlist zur verfügung gestellt werden und keine Spezielle.
  */
 function selectquestiontype(): void {
-    var selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
-    var selectedtype: string = selectedradiobutton.value
+    let selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
+    let selectedtype: string = selectedradiobutton.value
+    let selectedwinpointsradiobutton: HTMLInputElement = document.querySelector('input[name="winpoints"]:checked')
+    winpoints = parseInt(selectedwinpointsradiobutton.value)
+    let deletewinpointsselection = document.querySelector('.selectwinpoints') as HTMLElement
+    deletewinpointsselection.innerHTML = ''
     for (let index = 0; index < Questionlist.length; index++) {
         if (Questionlist[index].type == selectedtype) {
             visiblequestionlist.push(Questionlist[index])
@@ -243,14 +247,15 @@ function checkanswer(): void {
     let selectedanswer = parseInt(selectedradiobutton.value)
     let headline = document.querySelector('.headline') as HTMLElement
     if (selectedanswer == correctanswernumber) {
-        visiblequestionlist.splice(0, 1)
+
         headline.innerHTML = 'Deine Antwort war richtig!'
         currentpoints++
         updateCounter()
     } else {
-        headline.innerHTML = 'Deine Antwort war leider falsch.'
+        headline.innerHTML = '<div style="background-color:red">Deine Antwort war leider falsch.</div>'
+        visiblequestionlist.push(visiblequestionlist[0])
     }
-
+    visiblequestionlist.splice(0, 1)
     if (currentpoints >= winpoints) {
         showwinscreen()
     } else {
