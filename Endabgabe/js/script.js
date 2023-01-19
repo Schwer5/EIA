@@ -12,6 +12,8 @@
  * todosChecked gehören zusammen zu einem ToDo.
  */
 var correctanswernumber = 2;
+var currentpoints = 0;
+var winpoints = 2;
 var visiblequestionlist = [];
 var Questionlist = [
     {
@@ -74,7 +76,7 @@ var Questionlist = [
         type: "css",
         questiontext: 'CSS wurde entworfen, um...',
         correctanswer: '... Darstellungsvorgaben weitgehend von den Inhalten zu trennen',
-        wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln', '...'],
+        wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln'],
         infotext: 'gestufte Gestaltungsbögen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
     },
     {
@@ -159,14 +161,21 @@ window.addEventListener("load", function () {
 function selectquestiontype() {
     var selectedradiobutton = document.querySelector('input[name="radio"]:checked');
     var selectedtype = selectedradiobutton.value;
-    console.log(selectedradiobutton);
     for (var index = 0; index < Questionlist.length; index++) {
         if (Questionlist[index].type == selectedtype) {
             visiblequestionlist.push(Questionlist[index]);
         }
     }
     if (selectedtype == 'mixed') {
-        visiblequestionlist = Questionlist;
+        for (var index = 0; index < Questionlist.length; index++) {
+            visiblequestionlist.push(Questionlist[index]);
+        }
+    }
+    for (var i = visiblequestionlist.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temporary = visiblequestionlist[j];
+        visiblequestionlist[j] = visiblequestionlist[i];
+        visiblequestionlist[i] = temporary;
     }
     showquestion();
 }
@@ -178,11 +187,17 @@ function showquestion() {
     var selection = document.querySelector('.selection');
     selection.innerHTML = '';
     var answerlist = [];
-    for (var index = 0; index < answerlist.length; index++) {
+    for (var index = 0; index < visiblequestionlist[0].wronganswers.length; index++) {
         answerlist.push(visiblequestionlist[0].wronganswers[index]);
     }
+    for (var i = answerlist.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temporary = answerlist[j];
+        answerlist[j] = answerlist[i];
+        answerlist[i] = temporary;
+    }
+    correctanswernumber = randomIntFromInterval(0, visiblequestionlist[0].wronganswers.length);
     answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer);
-    console.log(answerlist);
     for (var index = 0; index < answerlist.length; index++) {
         var answer = document.createElement('div');
         answer.innerHTML = ' <input type="radio" id="answer-' + index + '" name="radio" value="' + index + '"><label for="answer-' + index + '">' + answerlist[index] + '</label>';
@@ -193,6 +208,7 @@ function showquestion() {
     button.innerHTML = '<button id="btn-start">Antworten</button>';
     var innerbutton = document.querySelector('#btn-start');
     innerbutton.addEventListener('click', checkanswer);
+    updateCounter();
 }
 function checkanswer() {
     var selectedradiobutton = document.querySelector('input[name="radio"]:checked');
@@ -201,11 +217,22 @@ function checkanswer() {
     if (selectedanswer == correctanswernumber) {
         visiblequestionlist.splice(0, 1);
         headline.innerHTML = 'Deine Antwort war richtig!';
+        currentpoints++;
+        updateCounter();
     }
     else {
         headline.innerHTML = 'Deine Antwort war leider falsch.';
     }
-    showcorrection();
+    if (currentpoints >= winpoints) {
+        showwinscreen();
+    }
+    else {
+        showcorrection();
+    }
+}
+function updateCounter() {
+    var points = document.querySelector('.points');
+    points.innerHTML = 'Punktestand: ' + currentpoints + ' / ' + winpoints;
 }
 function showcorrection() {
     var text = document.querySelector('.text');
@@ -217,4 +244,20 @@ function showcorrection() {
     button.innerHTML = '<button id="btn-start">Weiter</button>';
     var innerbutton = document.querySelector('#btn-start');
     innerbutton.addEventListener('click', showquestion);
+}
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function showwinscreen() {
+    var headline = document.querySelector('.headline');
+    headline.innerHTML = 'Du hast ' + winpoints + ' richtig beantwortet.';
+    var text = document.querySelector('.text');
+    text.innerHTML = 'Herzlichen Glückwunsch!';
+    var selection = document.querySelector('.selection');
+    selection.innerHTML = 'Möchtest Du nochmal eine Runde üben?';
+    var button = document.querySelector('.button');
+    button.innerHTML = '';
+    button.innerHTML = '<button id="btn-start">Ja</button>';
+    var innerbutton = document.querySelector('#btn-start');
+    innerbutton.addEventListener('click', function () { history.go(0); });
 }

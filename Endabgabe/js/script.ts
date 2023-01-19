@@ -20,6 +20,8 @@ interface Question {
     infotext: string;
 }
 let correctanswernumber: number = 2
+let currentpoints: number = 0
+let winpoints: number = 2
 let visiblequestionlist: Question[] = []
 let Questionlist: Question[] = [
     {
@@ -84,7 +86,7 @@ let Questionlist: Question[] = [
         type: "css",
         questiontext: 'CSS wurde entworfen, um...',
         correctanswer: '... Darstellungsvorgaben weitgehend von den Inhalten zu trennen',
-        wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln', '...'],
+        wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln'],
         infotext: 'gestufte Gestaltungsbögen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
     },
     {
@@ -184,14 +186,21 @@ window.addEventListener("load", function (): void {
 function selectquestiontype(): void {
     var selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
     var selectedtype: string = selectedradiobutton.value
-    console.log(selectedradiobutton)
     for (let index = 0; index < Questionlist.length; index++) {
         if (Questionlist[index].type == selectedtype) {
             visiblequestionlist.push(Questionlist[index])
         }
     }
     if (selectedtype == 'mixed') {
-        visiblequestionlist = Questionlist
+        for (let index = 0; index < Questionlist.length; index++) {
+            visiblequestionlist.push(Questionlist[index])
+        }
+    }
+    for (let i = visiblequestionlist.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        let temporary = visiblequestionlist[j]
+        visiblequestionlist[j] = visiblequestionlist[i]
+        visiblequestionlist[i] = temporary
     }
     showquestion()
 }
@@ -204,12 +213,17 @@ function showquestion(): void {
     let selection = document.querySelector('.selection') as HTMLElement
     selection.innerHTML = ''
     let answerlist: string[] = []
-    for (let index = 0; index < answerlist.length; index++) {
+    for (let index = 0; index < visiblequestionlist[0].wronganswers.length; index++) {
         answerlist.push(visiblequestionlist[0].wronganswers[index])
     }
-
+    for (let i = answerlist.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        let temporary = answerlist[j]
+        answerlist[j] = answerlist[i]
+        answerlist[i] = temporary
+    }
+    correctanswernumber = randomIntFromInterval(0, visiblequestionlist[0].wronganswers.length)
     answerlist.splice(correctanswernumber, 0, visiblequestionlist[0].correctanswer)
-    console.log(answerlist)
     for (let index: number = 0; index < answerlist.length; index++) {
         let answer: HTMLElement = document.createElement('div')
         answer.innerHTML = ' <input type="radio" id="answer-' + index + '" name="radio" value="' + index + '"><label for="answer-' + index + '">' + answerlist[index] + '</label>'
@@ -221,6 +235,7 @@ function showquestion(): void {
     button.innerHTML = '<button id="btn-start">Antworten</button>'
     let innerbutton = document.querySelector('#btn-start')
     innerbutton.addEventListener('click', checkanswer)
+    updateCounter()
 }
 
 function checkanswer(): void {
@@ -230,14 +245,24 @@ function checkanswer(): void {
     if (selectedanswer == correctanswernumber) {
         visiblequestionlist.splice(0, 1)
         headline.innerHTML = 'Deine Antwort war richtig!'
-
+        currentpoints++
+        updateCounter()
     } else {
-
-
         headline.innerHTML = 'Deine Antwort war leider falsch.'
     }
-    showcorrection()
+
+    if (currentpoints >= winpoints) {
+        showwinscreen()
+    } else {
+        showcorrection()
+    }
 }
+
+function updateCounter(): void {
+    let points = document.querySelector('.points') as HTMLElement
+    points.innerHTML = 'Punktestand: ' + currentpoints + ' / ' + winpoints
+}
+
 
 function showcorrection(): void {
 
@@ -250,4 +275,22 @@ function showcorrection(): void {
     button.innerHTML = '<button id="btn-start">Weiter</button>'
     let innerbutton = document.querySelector('#btn-start')
     innerbutton.addEventListener('click', showquestion)
+}
+
+function randomIntFromInterval(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function showwinscreen(): void {
+    let headline = document.querySelector('.headline')
+    headline.innerHTML = 'Du hast ' + winpoints + ' richtig beantwortet.'
+    let text = document.querySelector('.text') as HTMLElement
+    text.innerHTML = 'Herzlichen Glückwunsch!'
+    let selection = document.querySelector('.selection') as HTMLElement
+    selection.innerHTML = 'Möchtest Du nochmal eine Runde üben?'
+    let button = document.querySelector('.button') as HTMLElement
+    button.innerHTML = ''
+    button.innerHTML = '<button id="btn-start">Ja</button>'
+    let innerbutton = document.querySelector('#btn-start')
+    innerbutton.addEventListener('click', function () { history.go(0) })
 }
