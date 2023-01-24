@@ -1,6 +1,6 @@
 
 /**
- * Hier erstellen wir ein Interface um die Fragen einzuspeichern
+ * Hier erstellen wir ein Interface (eine Art Skelett) um die Fragen einzuspeichern
  * mit den Werten:
  *  Fragetyp (type), einen questiontext, eine correctanswer
  * eine wronganswer und einen infotext
@@ -17,7 +17,8 @@ interface Question {
  * Hier erstellen wir Variablen, die wir später benötigen. 
  * correctanswernumber=2 weil:
  * currentpoints=0 weil man bei 0 Punkten anfängt zu zählen.
- * winpoints=2 kann man beliebig einstellen, je nachdem wie viel Punkte man erreichen soll um zu gewinnen.
+ * winpoints=2 kann man beliebig einstellen, je nachdem wie viel Punkte man erreichen soll um zu gewinnen. 
+ * der Schwierigkeitsgrad von 3,5 oder 7 Punkten kann man anwählen. Dann wird die zwei hier überschrieben.
  * die visiblequestionlist ist die Variable in der eine Frage aus dem Array angezeigt werden soll.
  * Question ist hierbei der Typ des Arrays.
  */
@@ -28,9 +29,9 @@ let visiblequestionlist: Question[] = []
 
 
 /**
- * Die Fragen werden in dem Array Questionlist gespeichert
+ * Die Fragen werden in dem Array Questionlist gespeichert.
  * Frage hat einen Fragetyp (type), einen questiontext, eine correctanswer
- * eine wronganswer und einen infotext
+ * eine wronganswer und einen infotext. (Einfügen in das Skelett)
  */
 let Questionlist: Question[] = [
     {
@@ -167,7 +168,6 @@ window.addEventListener("load", function (): void {
      * in ihre Variablen gespeichert werden, um später auf sie 
      * zugreifen zu können
      */
-
     startButtonDOMElement = document.querySelector("#btn-start");
 
 
@@ -175,21 +175,20 @@ window.addEventListener("load", function (): void {
      * Jetzt da der DOM verfügbar ist kann auch ein Event-Listener
      * auf den AddToDo Button gesetzt werden.
      */
-
     startButtonDOMElement.addEventListener("click", selectquestiontype);
-
-    /**
-     * Initial soll einmal die Liste an bereit definierten ToDos
-     * aus den Arrays in den DOM gezeichnet werden.
-     */
 });
 
 /**
- * Hier schaut die Funktion, welcher Fragentyp ausgewählt ist. Dann erstellen wir eine variable die selectedtype heißt, welche 
+ * Hier schaut die Funktion, welcher Fragentyp ausgewählt ist(HTML, TypeScript, CSS oder gemischt). 
+ * Dann erstellen wir eine variable die selectedtype heißt, welche 
  * den value, den Wert der Umfrage annimmt welches HTML, CSS oder TypeScript sein könnte. 
+ * In Zeile 192 teilen wir selectedwinpointsradiobutton zu indem wir schauen wo das Häkchen bei welcher Gewinnpunktzahl gesetzt wurde.
  * In der for-Schleife soll nun die Liste hochgezählt werden von 0 an. In der if-Schleife; ob der type der Liste mit dem 
- * vorher definierten selectedtype übereinstimmt. Wenn ja soll die Frage angezeigt werden. Falls der typ 'mixed' ausgewählt 
- * sein sollte, dann sollen alle Fragen aus der Questionlist zur verfügung gestellt werden und keine Spezielle.
+ * vorher definierten selectedtype übereinstimmt. Wenn ja soll diese Frage aus dem Array in die visiblequestionlist gemacht werden. 
+ * Falls der typ 'mixed' ausgewählt sein sollte, dann sollen alle Fragen aus der Questionlist zur verfügung gestellt werden und 
+ * keine Spezielle.
+ * Die for Schleife in Zeile 209 mischt die Fragen.
+ * Nach diesen Abläufen läuft die Funktion showquestion ab.
  */
 function selectquestiontype(): void {
     let selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
@@ -217,6 +216,21 @@ function selectquestiontype(): void {
     showquestion()
 }
 
+/**
+ * hier wird die Funktion showquestion definiert, void wird genutzt weil diese Funktion kein Wert zurückgibt.
+ * In dieser Funktion greift man in die unterschiedlichen HTML Elemente (hier: Klassen) ein um die Fragen zu zeigen. 
+ * Zuerst wird in die Überschrift eingegriffen und diese wird entfernt.(ist leer)
+ * Dann greift man in die Klasse text ein und Zeigt dort von der ersten Frage den questiontext.
+ * Bei let selection wird die Klasse selection leer gemacht. 
+ * Dann definieren wir eine Variable namens answerlist die aus einem String bestehen soll. 
+ * In der Vorschleife gehen wir die visiblequestionlist durch und pushen die falschen Antworten in die answerlist.
+ * In der zweiten for schleife (240) mischen wir die antworten in der answerlist wieder.
+ * Bei correctanswernumber geht es weiter, dort soll es die richtige Antwort irgendwo zwischen den falschen Antworten speichern und einordnen.
+ * 
+ * Bei let button wird die Klasse button ausgewählt, der Inhalt aus der HTML geleert und zu einem Antwort-Button geändert.
+ * Danach: wenn der button mit der ID start gecklickt wird, soll die Funktion checkanswer ablaufen.
+ * Am Schluss soll die Funktion updateCounter ablaufen.
+ */
 function showquestion(): void {
     let headline = document.querySelector('.headline') as HTMLElement
     headline.innerHTML = ''
@@ -249,7 +263,12 @@ function showquestion(): void {
     innerbutton.addEventListener('click', checkanswer)
     updateCounter()
 }
-
+/**
+ * Hier starten wir wieder mit einer Funktion die keinen Wert zurückgibt.
+ * Hier wird selectedradiobutton den Wert des ausgewählten radio-buttons zugeteilt.
+ * 
+ * 
+ */
 function checkanswer(): void {
     let selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
     let selectedanswer = parseInt(selectedradiobutton.value)
@@ -270,15 +289,21 @@ function checkanswer(): void {
         showcorrection()
     }
 }
-
+/**
+ * In dieser Funktion wird eine neue Variable erstellt die auf die Klasse points zugreift und den aktuellen
+ * Punktestand und den Punktestand den man benötigt um zu gewinnen anzeigt.
+ */
 function updateCounter(): void {
     let points = document.querySelector('.points') as HTMLElement
     points.innerHTML = 'Punktestand: ' + currentpoints + ' / ' + winpoints
 }
 
-
+/**
+ * Hier wird wieder auf unterschiedliche Klassen im HTML zugegriffen um den Infotext anzuzeigen nachdem man auf den 
+ * Button geklickt hat.
+ * Dann soll aus dem Button ein Weiter button werden. Wenn man darauf klickt, wird wieder die Funktion showquestion abgespielt.
+ */
 function showcorrection(): void {
-
     let text = document.querySelector('.text') as HTMLElement
     text.innerHTML = visiblequestionlist[0].infotext
     let selection = document.querySelector('.selection') as HTMLElement
@@ -289,11 +314,18 @@ function showcorrection(): void {
     let innerbutton = document.querySelector('#btn-start')
     innerbutton.addEventListener('click', showquestion)
 }
-
+/**
+ * Hier wird eine Zufallszahl generiert.
+ */
 function randomIntFromInterval(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
+/**
+ * Diese Funktion läuft ab wenn man die volle Punktzahl erreicht. 
+ * Es wird wieder auf die unterschiedlichen Klassen zugegriffen um den Gewinnertext anzuzeigen und 
+ * es wird danach gefragt ob man noch einmal spielen möchte.
+ * Wenn man den Button klickt, wird die Seite neu geladen und alles fängt von vorne an :)
+ */
 function showwinscreen(): void {
     let headline = document.querySelector('.headline')
     headline.innerHTML = 'Du hast ' + winpoints + ' richtig beantwortet.'
