@@ -1,9 +1,9 @@
 
 /**
- * Hier erstellen wir ein Interface (eine Art Skelett) um die Fragen einzuspeichern
+ * Hier erstellen wir ein Interface um die Fragen einzuspeichern
  * mit den Werten:
- *  Fragetyp (type), einen questiontext, eine correctanswer
- * eine wronganswer und einen infotext
+ * Fragetyp (type), einen Fragetext (questiontext), die richtige Antwort (correctanswer)
+ * ein Array mit falschen Antworten (wronganswers) und einen Infotext (infotext)
  */
 interface Question {
     type: string;
@@ -15,23 +15,20 @@ interface Question {
 
 /**
  * Hier erstellen wir Variablen, die wir später benötigen. 
- * correctanswernumber=2 weil:
- * currentpoints=0 weil man bei 0 Punkten anfängt zu zählen.
- * winpoints=2 kann man beliebig einstellen, je nachdem wie viel Punkte man erreichen soll um zu gewinnen. 
- * der Schwierigkeitsgrad von 3,5 oder 7 Punkten kann man anwählen. Dann wird die zwei hier überschrieben.
- * die visiblequestionlist ist die Variable in der eine Frage aus dem Array angezeigt werden soll.
+ * correctanswernumber=0, diese speichert die Stelle an der die richtige Antwort der aktuellen Frage ist.
+ * currentpoints=0 diese speichert die Anzahl der richtig beantworteten Fragen. Bei 0 fängt man an zu zählen.
+ * winpoints=0 speichert Anzahl der Punkte die benötigt wird um zu gewinnen.ählen. Schwierigkeit ist leicht, mittel, schwer entspricht 3,5,7.
+ * Die visiblequestionlist ist ein Array das alle Fragen enthält, die angezeigt werden sollen.
  * Question ist hierbei der Typ des Arrays.
  */
-let correctanswernumber: number = 2
+let correctanswernumber: number = 0
 let currentpoints: number = 0
-let winpoints: number = 2
+let winpoints: number = 0
 let visiblequestionlist: Question[] = []
 
 
 /**
- * Die Fragen werden in dem Array Questionlist gespeichert.
- * Frage hat einen Fragetyp (type), einen questiontext, eine correctanswer
- * eine wronganswer und einen infotext. (Einfügen in das Skelett)
+ * Alle Fragen sind in dem Array Questionlist gespeichert.
  */
 let Questionlist: Question[] = [
     {
@@ -69,6 +66,21 @@ let Questionlist: Question[] = [
         wronganswers: ['Heute tauscht Martin Lampen ', 'Hyper text marketing Language', 'Hyper Text Markup Listener'],
         infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
     },
+    {
+        type: "html",
+        questiontext: 'Beschreiben Sie HTML.',
+        correctanswer: 'HTML ist eine Markup-Sprache, mit der Website-Vorlagen oder Webseiten erstellt werden, um den Inhalt im World Wide Web zu präsentieren.',
+        wronganswers: ['HTML ist eine Marketing-Sprache um ein Mockup für Kunden präsentieren zu können', 'HTML ist eine Markup-Sprache, mit der Papiervorlagen erstellt werden, um den Inhalt einem Kunden analog zu präsentieren.'],
+        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+    },
+    {
+        type: "html",
+        questiontext: 'Was ist HTML5?',
+        correctanswer: 'HTML5 ist die neueste oder aktualisierte Version der Markup-Sprache, die HTML definiert.',
+        wronganswers: ['HTML5 ist die älteste Version der Markup-Sprache die HTML definiert.', 'HTML5 gibt es noch nicht.', 'HTML5 beschreibt eine Version der Markup-Sprache die immer und überall funktioniert.'],
+        infotext: 'HTML beherbergt seit neuestem neue Funktionen. Schaue hier: https://www.heise.de/tipps-tricks/Was-ist-HTML5-Ein-kurzer-Ueberblick-3877264.html'
+    },
+
 
 
     {
@@ -97,14 +109,28 @@ let Questionlist: Question[] = [
         questiontext: 'CSS wurde entworfen, um...',
         correctanswer: '... Darstellungsvorgaben weitgehend von den Inhalten zu trennen',
         wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln'],
-        infotext: 'gestufte Gestaltungsbögen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+        infotext: 'CSS beschreibt den Stil einer HTML-Webseite. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
     },
     {
         type: "css",
-        questiontext: 'Kann CSS in Kombination mit HTML genutzt werden?',
-        correctanswer: 'Ja',
-        wronganswers: ['Kommt drauf an', 'Nein', 'Teilweise'],
-        infotext: 'CSS wurde entworfen, um Darstellungsvorgaben weitgehend von den Inhalten zu trennen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+        questiontext: 'Kann CSS  Klassen ansprechen, IDs oder beides?',
+        correctanswer: 'Beides',
+        wronganswers: ['Nur Klassen.', 'Nur IDs', 'Auf keine von beiden.'],
+        infotext: 'CSS selektiert die HTML Elemente die du stylen möchtest. Schaue hier: https://www.w3schools.com/css/css_selectors.asp'
+    },
+    {
+        type: "css",
+        questiontext: 'Was ist CSS-Deckkraft?',
+        correctanswer: 'Es ist die Eigenschaft, die die Transparenz eines Elements herausarbeitet.',
+        wronganswers: ['Es ist die Eigenschaft, dass es alle anderen Elemente überdeckt.', 'Es ist die Eigenschaft, dass der vorherige Befehl immer priorisiert wird', 'Diese Eigenschaft gibt es nicht.'],
+        infotext: 'CSS hat unterschiedliche gestalterische Möglichkeiten. Schaue hier: https://www.w3schools.com/cssref/css3_pr_opacity.php'
+    },
+    {
+        type: "css",
+        questiontext: 'Warum ist das externe Stylesheet nützlich?',
+        correctanswer: 'Nützlich, da wir alle Styling-Codes in eine einzige Datei schreiben.',
+        wronganswers: ['Es ist nicht nützlich.', 'Es ist nützlich, da man es ohne Verweisung auf einen Links verwenden kann.'],
+        infotext: 'Wenn wir also Änderungen an dieser externen Datei vornehmen, können die Änderungen auch auf der Webseite beobachtet werden. Schaue hier: https://www.mediaevent.de/css/css-einbinden.html'
     },
 
 
@@ -144,6 +170,20 @@ let Questionlist: Question[] = [
         wronganswers: ['Gibt die Zahl an durch die maximal dividiert werden kann an, also 2', 'Dividiert, also 2.4', 'Dividiert 5 durch 12, also ca. 0.416'],
         infotext: 'Wird Modulo genannt. Schaue hier: https://www.tutorialspoint.com/typescript/typescript_operators.htm'
     },
+    {
+        type: "TypeScript",
+        questiontext: 'Wer hat TypeScript entwickelt?',
+        correctanswer: 'Microsoft',
+        wronganswers: ['Apple', 'Google', 'Alphabet'],
+        infotext: 'Die Sprache wird weiterhin vom selben Entwickler weiterentwickelt. Schaue hier: https://learn.microsoft.com/de-de/training/modules/typescript-get-started/'
+    },
+    {
+        type: "TypeScript",
+        questiontext: 'Wird TypeScript-Code direkt in einem Browser oder auf einer anderen Plattform ausgeführt?',
+        correctanswer: 'Nein',
+        wronganswers: ['Ja', 'Teilweise', 'Nur auf bestimmten, dafür entwickelten Browsern.'],
+        infotext: 'Die Zielplattform führt dann das einfache JavaScript aus, das mithilfe des Transpilers von TypeScript aus den .ts-Dateien generiert wurde. Schaue hier: https://geekflare.com/de/typescript-vs-javascript/'
+    },
 
 ]
 
@@ -180,15 +220,14 @@ window.addEventListener("load", function (): void {
 
 /**
  * Hier schaut die Funktion, welcher Fragentyp ausgewählt ist(HTML, TypeScript, CSS oder gemischt). 
- * Dann erstellen wir eine variable die selectedtype heißt, welche 
+ * Dann erstellen wir eine Variable die selectedtype heißt, welche 
  * den value, den Wert der Umfrage annimmt welches HTML, CSS oder TypeScript sein könnte. 
  * In Zeile 192 teilen wir selectedwinpointsradiobutton zu indem wir schauen wo das Häkchen bei welcher Gewinnpunktzahl gesetzt wurde.
- * In der for-Schleife soll nun die Liste hochgezählt werden von 0 an. In der if-Schleife; ob der type der Liste mit dem 
+ * In der for-Schleife soll nun die Liste hochgezählt werden von 0 an. In dem if-Block; ob der type der Liste mit dem 
  * vorher definierten selectedtype übereinstimmt. Wenn ja soll diese Frage aus dem Array in die visiblequestionlist gemacht werden. 
- * Falls der typ 'mixed' ausgewählt sein sollte, dann sollen alle Fragen aus der Questionlist zur verfügung gestellt werden und 
- * keine Spezielle.
- * Die for Schleife in Zeile 209 mischt die Fragen.
- * Nach diesen Abläufen läuft die Funktion showquestion ab.
+ * Falls der typ 'mixed' ausgewählt sein sollte, dann sollen alle Fragen aus der Questionlist zur Verfügung gestellt werden.
+ * Die letzte for-Schleife mischt die Fragen.
+ * Nach diesen Vorbereitungen wird die Funktion showquestion aufgerufen um die erste Frage anzuzeigen.
  */
 function selectquestiontype(): void {
     let selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
@@ -217,19 +256,19 @@ function selectquestiontype(): void {
 }
 
 /**
- * hier wird die Funktion showquestion definiert, void wird genutzt weil diese Funktion kein Wert zurückgibt.
- * In dieser Funktion greift man in die unterschiedlichen HTML Elemente (hier: Klassen) ein um die Fragen zu zeigen. 
+ * Hier wird die Funktion showquestion definiert, void wird genutzt weil diese Funktion kein Wert zurückgibt.
+ * In dieser Funktion greift man in die unterschiedlichen HTML Elemente (anhand von Klassen) ein um die Fragen zu zeigen. 
  * Zuerst wird in die Überschrift eingegriffen und diese wird entfernt.(ist leer)
  * Dann greift man in die Klasse text ein und Zeigt dort von der ersten Frage den questiontext.
  * Bei let selection wird die Klasse selection leer gemacht. 
  * Dann definieren wir eine Variable namens answerlist die aus einem String bestehen soll. 
- * In der Vorschleife gehen wir die visiblequestionlist durch und pushen die falschen Antworten in die answerlist.
- * In der zweiten for schleife (240) mischen wir die antworten in der answerlist wieder.
- * Bei correctanswernumber geht es weiter, dort soll es die richtige Antwort irgendwo zwischen den falschen Antworten speichern und einordnen.
- * 
- * Bei let button wird die Klasse button ausgewählt, der Inhalt aus der HTML geleert und zu einem Antwort-Button geändert.
- * Danach: wenn der button mit der ID start gecklickt wird, soll die Funktion checkanswer ablaufen.
- * Am Schluss soll die Funktion updateCounter ablaufen.
+ * In der for-Schleife gehen wir die visiblequestionlist durch und pushen die falschen Antworten in die answerlist.
+ * In der zweiten for-Schleife mischen wir die Antworten in der answerlist wieder.
+ * Die correctanswernumber wird als zufällige Zahl definiert, dann wird die richtige Antwort an dieser Stelle in die möglichen Antworten eingefügt.
+ * In der for-Schleife geht man durch die soeben zusammengesetzte Liste der Antworten und fügt sie in die HTML ein.
+ * Bei let button wird das Element anhand der Klasse button ausgewählt, der Inhalt aus der HTML geleert und zu einem Antwort-Button geändert.
+ * Danach: wenn der button mit der ID btn-start geklickt wird, soll die Funktion checkanswer ablaufen.
+ * Am Schluss wird die Funktion updateCounter aufgerufen.
  */
 function showquestion(): void {
     let headline = document.querySelector('.headline') as HTMLElement
@@ -266,8 +305,15 @@ function showquestion(): void {
 /**
  * Hier starten wir wieder mit einer Funktion die keinen Wert zurückgibt.
  * Hier wird selectedradiobutton den Wert des ausgewählten radio-buttons zugeteilt.
- * 
- * 
+ * selectedradiobutton.value wird mit parseInt von einem string zu einer number und als Zahl in selectedanswer eingespeichert.
+ * headline ist eine neue Variable und greift anhand der Klasse headline in HTML ein.
+ * if-Block: wenn die number von selectedanswer gleich ist wie correctanswernumber, dann soll in der headline stehen, dass die 
+ * Antwort richtig war und es wird ein Punkt bei den currentpoints hinzugefügt. Die Funktion updatecounter wird aufgerufen.
+ * else-Block: wenn die number von selectedanswer nicht gleich ist wie correctanswernumber dann soll angezeigt werden, dass die 
+ * Antwort falsch war (mit rotem Hintergrund). Diese Frage wird wieder in die visiblequestionlist gepushed.
+ * Danach löschen wir die Frage vom Anfang der visiblequestionlist.
+ * Wenn die erreichte Punktzahl(currentpoints) größer oder gleich der zu erreichenden Punktzahl (winpoints) ist, dann wird der Siegesscreen angezeigt.
+ * Ansonsten wird der Infotext angezeigt. 
  */
 function checkanswer(): void {
     let selectedradiobutton: HTMLInputElement = document.querySelector('input[name="radio"]:checked') as HTMLInputElement
@@ -286,9 +332,10 @@ function checkanswer(): void {
     if (currentpoints >= winpoints) {
         showwinscreen()
     } else {
-        showcorrection()
+        showinfotext()
     }
 }
+
 /**
  * In dieser Funktion wird eine neue Variable erstellt die auf die Klasse points zugreift und den aktuellen
  * Punktestand und den Punktestand den man benötigt um zu gewinnen anzeigt.
@@ -299,11 +346,11 @@ function updateCounter(): void {
 }
 
 /**
- * Hier wird wieder auf unterschiedliche Klassen im HTML zugegriffen um den Infotext anzuzeigen nachdem man auf den 
+ * Hier wird wieder auf unterschiedliche Elemente anhand von Klassen im HTML zugegriffen um den Infotext anzuzeigen nachdem man auf den 
  * Button geklickt hat.
- * Dann soll aus dem Button ein Weiter button werden. Wenn man darauf klickt, wird wieder die Funktion showquestion abgespielt.
+ * Dann soll aus dem Button ein Weiter-Button werden. Wenn man darauf klickt, wird wieder die nächste Frage angezeigt.
  */
-function showcorrection(): void {
+function showinfotext(): void {
     let text = document.querySelector('.text') as HTMLElement
     text.innerHTML = visiblequestionlist[0].infotext
     let selection = document.querySelector('.selection') as HTMLElement
@@ -315,14 +362,14 @@ function showcorrection(): void {
     innerbutton.addEventListener('click', showquestion)
 }
 /**
- * Hier wird eine Zufallszahl generiert.
+ * Hier wird eine Zufallszahl zwischen min und max generiert.
  */
 function randomIntFromInterval(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 /**
- * Diese Funktion läuft ab wenn man die volle Punktzahl erreicht. 
- * Es wird wieder auf die unterschiedlichen Klassen zugegriffen um den Gewinnertext anzuzeigen und 
+ * Diese Funktion soll aufgerufen werden wenn man die volle Punktzahl erreicht hat. 
+ * Es wird wieder auf die unterschiedlichen Elemente zugegriffen um den Gewinnertext anzuzeigen und 
  * es wird danach gefragt ob man noch einmal spielen möchte.
  * Wenn man den Button klickt, wird die Seite neu geladen und alles fängt von vorne an :)
  */
@@ -339,3 +386,4 @@ function showwinscreen(): void {
     let innerbutton = document.querySelector('#btn-start')
     innerbutton.addEventListener('click', function () { history.go(0) })
 }
+
