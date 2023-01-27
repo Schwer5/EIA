@@ -36,49 +36,49 @@ let Questionlist: Question[] = [
         questiontext: 'Was heißt HTML?',
         correctanswer: 'Hyper Text Markup Language',
         wronganswers: ['Heute tauscht Martin Lampen ', 'Hyper text marketing Language', 'Hyper Text Markup Listener'],
-        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier:<a href ="https://de.wikipedia.org/wiki/Hypertext_Markup_Language"target="_blank">nachlesen</a>'
     },
     {
         type: "html",
         questiontext: 'Die visuelle Darstellung ist...',
         correctanswer: '...nicht Teil der HTML-Spezifikationen',
         wronganswers: ['...teilweise Teil der HTML-Spezifikationen ', '...Teil der HTML-Spezifikationen', '...großer Teil der HTML-Spezifikationen'],
-        infotext: 'Ausnahme sind die als veraltet (englisch deprecated) markierten präsentationsbezogenen Elemente. Schaue hier:https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+        infotext: 'Ausnahme sind die als veraltet (englisch deprecated) markierten Präsentationsbezogenen Elemente. Schaue hier:<a href ="https://de.wikipedia.org/wiki/Hypertext_Markup_Language"target=_blank""nachlesen</a>'
     },
     {
         type: "html",
         questiontext: 'Was gehört zu HTML?',
         correctanswer: '&lt;p&gt;',
         wronganswers: ['background-color', 'var', '.addEventListener'],
-        infotext: 'Es geht in HTML um beschreibende (englisch descriptive), nicht um verfahrens- (englisch procedural) und darstellungsorientierte (englisch presentational) Textauszeichnung, auch wenn sich HTML in früheren Versionen dafür verwenden ließ. Schaue hier: https://www.w3schools.com/html/html_intro.asp'
+        infotext: 'Es geht in HTML um beschreibende (englisch descriptive), nicht um verfahrens- (englisch procedural) und darstellungsorientierte (englisch presentational) Textauszeichnung, auch wenn sich HTML in früheren Versionen dafür verwenden ließ. Schaue hier:<a href ="https://www.w3schools.com/html/html_intro.asp"target="_blank">nachlesen</a>'
     },
     {
         type: "html",
         questiontext: 'HTML ist eine...?',
         correctanswer: 'Auszeichnungssprache',
         wronganswers: ['Programmiersprache', 'Skriptsprache', 'Zeichensprache'],
-        infotext: 'Eine Gemeinsamkeit mit den meisten Programmiersprachen ist, dass für die Bearbeitung der Quelldokumente keine spezielle Software (siehe auch Liste von HTML-Editoren) nötig ist, sondern ein beliebiger Texteditor ausreicht. Schaue hier: https...'
+        infotext: 'Eine Gemeinsamkeit mit den meisten Programmiersprachen ist, dass für die Bearbeitung der Quelldokumente keine spezielle Software (siehe auch Liste von HTML-Editoren) nötig ist, sondern ein beliebiger Texteditor ausreicht. Schaue hier:<a href =" https..."target="_blank">nachlesen</a>'
     },
     {
         type: "html",
-        questiontext: 'Was heißt HTML?',
-        correctanswer: 'Hyper Text Markup Language',
-        wronganswers: ['Heute tauscht Martin Lampen ', 'Hyper text marketing Language', 'Hyper Text Markup Listener'],
-        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+        questiontext: 'Wie lerne ich am besten HTML?',
+        correctanswer: 'Bei Herrn Rausch',
+        wronganswers: ['Indem ich mit einer Ente rede', 'Stack Overflow', 'Ein trockenes Buch'],
+        infotext: 'HTML lernt man am besten über seine Vorlesungen und hier falls man für die Aufgaben Hilfe benötigt:<a href ="https://stackoverflow.com">nachlesen</a>'
     },
     {
         type: "html",
         questiontext: 'Beschreiben Sie HTML.',
         correctanswer: 'HTML ist eine Markup-Sprache, mit der Website-Vorlagen oder Webseiten erstellt werden, um den Inhalt im World Wide Web zu präsentieren.',
         wronganswers: ['HTML ist eine Marketing-Sprache um ein Mockup für Kunden präsentieren zu können', 'HTML ist eine Markup-Sprache, mit der Papiervorlagen erstellt werden, um den Inhalt einem Kunden analog zu präsentieren.'],
-        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+        infotext: 'HTML ist die Sprache des Internets. Schaue hier:<a href =" https://de.wikipedia.org/wiki/Hypertext_Markup_Language "target="_blank">nachlesen</a>'
     },
     {
         type: "html",
         questiontext: 'Was ist HTML5?',
         correctanswer: 'HTML5 ist die neueste oder aktualisierte Version der Markup-Sprache, die HTML definiert.',
         wronganswers: ['HTML5 ist die älteste Version der Markup-Sprache die HTML definiert.', 'HTML5 gibt es noch nicht.', 'HTML5 beschreibt eine Version der Markup-Sprache die immer und überall funktioniert.'],
-        infotext: 'HTML beherbergt seit neuestem neue Funktionen. Schaue hier: https://www.heise.de/tipps-tricks/Was-ist-HTML5-Ein-kurzer-Ueberblick-3877264.html'
+        infotext: 'HTML beherbergt seit neuestem neue Funktionen. Schaue hier:<a href =" https://www.heise.de/tipps-tricks/Was-ist-HTML5-Ein-kurzer-Ueberblick-3877264.html"target="_blank">nachlesen</a>'
     },
 
 
@@ -88,49 +88,49 @@ let Questionlist: Question[] = [
         questiontext: 'CSS ist eine...',
         correctanswer: '...Stylesheet-Sprache',
         wronganswers: ['...Programmiersprache', '...Zeichensprache', '...Skriptsprache'],
-        infotext: 'Für elektronische Dokumente und zusammen mit HTML und JavaScript eine der Kernsprachen des World Wide Webs.. Schaue hier:https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+        infotext: 'Für elektronische Dokumente und zusammen mit HTML und JavaScript eine der Kernsprachen des World Wide Webs.. Schaue hier:<a href ="https://de.wikipedia.org/wiki/Cascading_Style_Sheets"target="_blank">nachlesen</a>'
     },
     {
         type: "css",
         questiontext: 'Was heißt CSS?',
         correctanswer: 'Cascading Style Sheets',
         wronganswers: ['coding speed sheets', 'copie styles soon', 'come soon styles'],
-        infotext: 'gestufte Gestaltungsbögen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+        infotext: 'gestufte Gestaltungsbögen. Schaue hier:<a href =" https://de.wikipedia.org/wiki/Cascading_Style_Sheets"target="_blank">nachlesen</a>'
     },
     {
         type: "css",
         questiontext: 'Kann CSS in Kombination mit HTML genutzt werden?',
         correctanswer: 'Ja',
         wronganswers: ['Kommt drauf an', 'Nein', 'Teilweise'],
-        infotext: 'CSS wurde entworfen, um Darstellungsvorgaben weitgehend von den Inhalten zu trennen. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+        infotext: 'CSS wurde entworfen, um Darstellungsvorgaben weitgehend von den Inhalten zu trennen. Schaue hier:<a href =" https://de.wikipedia.org/wiki/Cascading_Style_Sheets"target="_blank">nachlesen</a>'
     },
     {
         type: "css",
         questiontext: 'CSS wurde entworfen, um...',
         correctanswer: '... Darstellungsvorgaben weitgehend von den Inhalten zu trennen',
         wronganswers: ['...bessere Analyse-Daten zu erhalten', '...eine weitere Kernsprache damit zu entwickeln'],
-        infotext: 'CSS beschreibt den Stil einer HTML-Webseite. Schaue hier: https://de.wikipedia.org/wiki/Cascading_Style_Sheets'
+        infotext: 'CSS beschreibt den Stil einer HTML-Webseite. Schaue hier:<a href =" https://de.wikipedia.org/wiki/Cascading_Style_Sheets"target="_blank">nachlesen</a>'
     },
     {
         type: "css",
         questiontext: 'Kann CSS  Klassen ansprechen, IDs oder beides?',
         correctanswer: 'Beides',
         wronganswers: ['Nur Klassen.', 'Nur IDs', 'Auf keine von beiden.'],
-        infotext: 'CSS selektiert die HTML Elemente die du stylen möchtest. Schaue hier: https://www.w3schools.com/css/css_selectors.asp'
+        infotext: 'CSS selektiert die HTML Elemente die du stylen möchtest. Schaue hier:<a href =" https://www.w3schools.com/css/css_selectors.asp"target="_blank">nachlesen</a>'
     },
     {
         type: "css",
         questiontext: 'Was ist CSS-Deckkraft?',
         correctanswer: 'Es ist die Eigenschaft, die die Transparenz eines Elements herausarbeitet.',
         wronganswers: ['Es ist die Eigenschaft, dass es alle anderen Elemente überdeckt.', 'Es ist die Eigenschaft, dass der vorherige Befehl immer priorisiert wird', 'Diese Eigenschaft gibt es nicht.'],
-        infotext: 'CSS hat unterschiedliche gestalterische Möglichkeiten. Schaue hier: https://www.w3schools.com/cssref/css3_pr_opacity.php'
+        infotext: 'CSS hat unterschiedliche gestalterische Möglichkeiten. Schaue hier: <a href ="https://www.w3schools.com/cssref/css3_pr_opacity.php"target="_blank">nachlesen</a>'
     },
     {
         type: "css",
         questiontext: 'Warum ist das externe Stylesheet nützlich?',
         correctanswer: 'Nützlich, da wir alle Styling-Codes in eine einzige Datei schreiben.',
         wronganswers: ['Es ist nicht nützlich.', 'Es ist nützlich, da man es ohne Verweisung auf einen Links verwenden kann.'],
-        infotext: 'Wenn wir also Änderungen an dieser externen Datei vornehmen, können die Änderungen auch auf der Webseite beobachtet werden. Schaue hier: https://www.mediaevent.de/css/css-einbinden.html'
+        infotext: 'Wenn wir also Änderungen an dieser externen Datei vornehmen, können die Änderungen auch auf der Webseite beobachtet werden. Schaue hier:<a href =" https://www.mediaevent.de/css/css-einbinden.html"target="_blank">nachlesen</a>'
     },
 
 
@@ -140,49 +140,49 @@ let Questionlist: Question[] = [
         questiontext: 'TypeScript schließt Lücken im Programmierkonzept von JavaScript durch:',
         correctanswer: 'strikte Typisierung',
         wronganswers: ['schnellere Rechenfähigkeit', 'errechnen von Fehlern', 'bessere Leistung'],
-        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: https://de.wikipedia.org/wiki/Hypertext_Markup_Language'
+        infotext: 'HTML ist die Sprache des Internets, es wird genutzt um Webseiten ober ähnliches zu erstellen. Schaue hier: <a href ="https://de.wikipedia.org/wiki/Hypertext_Markup_Language"target="_blank">nachlesen</a>'
     },
     {
         type: "TypeScript",
         questiontext: 'Die visuelle Darstellung ist...',
         correctanswer: '...nicht Teil von TypeScript',
         wronganswers: ['...teilweise Teil von TypeScript', '...manchmal Teil von TypeScript', '...ein großer Teil von TypeScript'],
-        infotext: 'TypeScript ist eine von Microsoft entwickelte Skriptsprache, die auf den Vorschlägen zum ECMAScript-6-Standard basiert.. Schaue hier:https://de.wikipedia.org/wiki/TypeScript'
+        infotext: 'TypeScript ist eine von Microsoft entwickelte Skriptsprache, die auf den Vorschlägen zum ECMAScript-6-Standard basiert.. Schaue hier:<a href ="https://de.wikipedia.org/wiki/TypeScript"target="_blank">nachlesen</a>'
     },
     {
         type: "TypeScript",
         questiontext: 'TypeScript erweitert',
         correctanswer: 'JavaScript',
         wronganswers: ['C++', 'Python', 'C#'],
-        infotext: 'Erweitert JavaScript zu einer Programmiersprache, die den Anforderungen an eine Hochsprache wie Java oder C++ näher kommen. Schaue hier: https://www.w3schools.com/css/default.asp'
+        infotext: 'Erweitert JavaScript zu einer Programmiersprache, die den Anforderungen an eine Hochsprache wie Java oder C++ näher kommen. Schaue hier:<a href =" https://www.w3schools.com/css/default.asp"target="_blank">nachlesen</a>'
     },
     {
         type: "TypeScript",
         questiontext: 'Welches ist richtig?',
         correctanswer: 'let names: string;',
         wronganswers: ['Let names: string;', 'lets name: string;', 'let age: numbers;'],
-        infotext: '1. Schlüsselwort zur Deklaration einer Variable. 2. Bezeichnung. 3. Typ Schaue hier: https://www.w3schools.com/css/default.asp'
+        infotext: '1. Schlüsselwort zur Deklaration einer Variable. 2. Bezeichnung. 3. Typ Schaue hier:<a href =" https://www.w3schools.com/css/default.asp"target="_blank">nachlesen</a>'
     },
     {
         type: "TypeScript",
         questiontext: 'Was passiert hier: 12%5?',
         correctanswer: 'Gibt Restwert zurück, also 2',
         wronganswers: ['Gibt die Zahl an durch die maximal dividiert werden kann an, also 2', 'Dividiert, also 2.4', 'Dividiert 5 durch 12, also ca. 0.416'],
-        infotext: 'Wird Modulo genannt. Schaue hier: https://www.tutorialspoint.com/typescript/typescript_operators.htm'
+        infotext: 'Wird Modulo genannt. Schaue hier:<a href =" https://www.tutorialspoint.com/typescript/typescript_operators.htm"target="_blank">nachlesen</a>'
     },
     {
         type: "TypeScript",
         questiontext: 'Wer hat TypeScript entwickelt?',
         correctanswer: 'Microsoft',
         wronganswers: ['Apple', 'Google', 'Alphabet'],
-        infotext: 'Die Sprache wird weiterhin vom selben Entwickler weiterentwickelt. Schaue hier: https://learn.microsoft.com/de-de/training/modules/typescript-get-started/'
+        infotext: 'Die Sprache wird weiterhin vom selben Entwickler weiterentwickelt. Schaue hier:<a href =" https://learn.microsoft.com/de-de/training/modules/typescript-get-started/"target="_blank">nachlesen</a>'
     },
     {
         type: "TypeScript",
         questiontext: 'Wird TypeScript-Code direkt in einem Browser oder auf einer anderen Plattform ausgeführt?',
         correctanswer: 'Nein',
         wronganswers: ['Ja', 'Teilweise', 'Nur auf bestimmten, dafür entwickelten Browsern.'],
-        infotext: 'Die Zielplattform führt dann das einfache JavaScript aus, das mithilfe des Transpilers von TypeScript aus den .ts-Dateien generiert wurde. Schaue hier: https://geekflare.com/de/typescript-vs-javascript/'
+        infotext: 'Die Zielplattform führt dann das einfache JavaScript aus, das mithilfe des Transpilers von TypeScript aus den .ts-Dateien generiert wurde. Schaue hier:<a href =" https://geekflare.com/de/typescript-vs-javascript/"target="_blank">nachlesen</a>'
     },
 
 ]
@@ -328,7 +328,7 @@ function checkanswer(): void {
         headline.innerHTML = '<div style="background-color:red">Deine Antwort war leider falsch.</div>'
         visiblequestionlist.push(visiblequestionlist[0])
     }
-    visiblequestionlist.splice(0, 1)
+
     if (currentpoints >= winpoints) {
         showwinscreen()
     } else {
@@ -360,6 +360,7 @@ function showinfotext(): void {
     button.innerHTML = '<button id="btn-start">Weiter</button>'
     let innerbutton = document.querySelector('#btn-start')
     innerbutton.addEventListener('click', showquestion)
+    visiblequestionlist.splice(0, 1)
 }
 /**
  * Hier wird eine Zufallszahl zwischen min und max generiert.
