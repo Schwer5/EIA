@@ -5,6 +5,7 @@ interface ToDo {
 let todo: ToDo[] = [
     {
         name: 'Putzen'
+
     },
     {
         name: 'Essen einkaufen'
@@ -13,7 +14,6 @@ let todo: ToDo[] = [
         name: 'Freudentanz'
     }
 ]
-
 
 
 
